@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Brown CS 148 - Introduction to Autonomous Robotics</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+
+    <!-- Combo with CSSNormalize, CSSGrids-Responsive, CSSForm, CSSTable, CSSList (v3.9.1) -->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?3.9.1/build/cssnormalize/cssnormalize-min.css&amp;3.9.1/build/cssgrids-responsive/cssgrids-responsive-min.css&amp;3.9.1/build/cssbutton/cssbutton-min.css&amp;gallery-2013.03.27-22-06/build/gallerycss-csslist/gallerycss-csslist-min.css&amp;gallery-2013.03.27-22-06/build/gallerycss-csstable/gallerycss-csstable-min.css&amp;gallery-2013.03.27-22-06/build/gallerycss-cssform/gallerycss-cssform-min.css">
+    
+    <!-- Some custom styles to make things pretty. -->
+    <link rel="stylesheet" type="text/css" href="https://rawgithub.com/tilomitra/prettypages/gh-pages/ui.css">
+
+    <!-- RainbowJS Syntax Highlighting - Github Theme. 
+         For more themes, go to https://github.com/ccampbell/rainbow/tree/master/themes -->
+    <link rel="stylesheet" type="text/css" href="https://rawgithub.com/ccampbell/rainbow/master/themes/github.css">
+
+    <!-- Modify header colors here to customize the look and feel of the site-->
+    <style>
+        
+        .header {
+            background: rgb(53, 41, 116);
+         }
+            .header h1 {
+                color: white;
+            }
+             .header h2 {
+                 font-weight:300;
+                 margin:0;
+                 color: rgb(116, 130, 230);
+             }
+    </style>
+
+</head>
+
+<body class='yui3-skin-sam'>
+
+    <div id="headerMenu" class="yui3-menu yui3-menu-open yui3-menu-horizontal yui3-menu-fixed">
+        <span class="yui3-menu-heading">BrownCS148</span>
+        <ul>
+            <li class="yui3-menu-active"><a href="#schedule">Schedule</a></li>
+            <li><a href="http://github.com/BrownCS148/">Github</a></li>
+            <li><a href="https://github.com/odestcj/3jsbot_stencil">3jsbot_stencil</a></li>
+        </ul>
+    </div>
+    <div class="header yui3-u-1">
+
+        <h1 class="yui3-u-1">Brown CS 148</h1>
+        <h2 class="yui3-u">Introduction to Autonomous Robotics</h2>
+        <br>
+        <h2 class="yui3-u">Spring 2014</h2>
+
+     </div>
+    <div class="content">
+<p>
+<img src="3jsbot_snapshot.png">
+
+        <h2>Introduction</h2>
+
+<p>
+
+CS 148 is an introduction to core topics in the modeling and control of autonomous robots.  This course focuses on the development of “brains for robots”. That is, given a robot as a machine with sensing, actuation, and computation, how do we develop programs that allow the robot to function autonomously? Such programs involve the robot's perception of its world, decision making towards some objective, and transforming decided actions into motor commands. 
+<!--We answer this question through a series of lectures, class discussions, and group projects. -->
+<p>
+This year, CS148 projects will model and control robots through projects written in JavaScript/HTML5.  These projects will be supported by the 3jsbot code stencil, which uses <a href="http://threejs.org/">threejs</a> for in-browser 3D rendering.  We will roughly follow software models from the Robot Operating System (ROS) robot middleware framework, such as the URDF kinematic modeling format.  Projects will cover 3D geometric transforms, compositions of matrix transforms, forward kinematics, axis-angle rotation by quaternions, proportional-derivative control, inverse kinematics, simple collision detection, and RRT motion planning, along with coverage of potential field navigation, Monte Carlo localization, and Newton-Euler dynamics.  
+<!--These projects will explore various approaches to robot decision making (spanning reaction to deliberation), perception (basic object recognition and state estimation), and control (proportional-derivative servos). -->
+
+<p>
+
+<h2>Instructor</h2>
+
+<p>Chad Jenkins 
+
+<h2>Meeting time/place</h2>
+
+<p>
+Monday 3:00-5:20 (M Hour) in CIT 368
+
+<h2>Mailing list</h2>
+
+<p>
+brown-cs148@googlegroups.com 
+
+<h2>Prerequisites</h2> 
+
+<p>
+Any one of the following: CS15, CS17, CS19, or permission from the instructor
+
+<p>
+    CS 15, 17, or 19 should provide an adequate programming background for the projects in this course. In addition, motivated students who have taken CS 4 should consult with the instructor before enrolling in CS148. Interested students who have not taken any of these courses at Brown, but have some other strong programming experience should consult with course instructor.
+
+<p>
+
+Highly Recommended: Linear alegebra
+<br>
+Recommended: computer graphics, computer vision, AI
+
+I will do my best to cover the necessary material, but no guarantees.  Linear algebra will be used extensively for representing 3D geometric transforms.  Computer graphics is helpful for under-the-hood understanding of threejs.  Computer vision and AI share common concepts with this course.
+
+<h2>Textbook</h2>
+<p>
+<a href="http://bcs.wiley.com/he-bcs/Books?action=index&itemId=0471649902&bcsId=2888">Robot Modeling and Control</a>
+<br>
+Mark W. Spong, Seth Hutchinson and M. Vidyasagar
+<br>
+Wiley, 2005 
+
+<h2>Projects and Grading</h2>
+
+<p>
+There will be 6 projects in CS148: 5 programming assignment and 1 oral/written assignment.  CS 148 projects are graded as “checked” (completed) or “not checked” (incomplete). To receive an A grade in the course, you must have all assignments checked by the end of reading period. For a B grade, 4 assignments must be checked. Less than 4 checks will result in no credit for the course.  The timing and due dates for these projects will be announced on an ongoing basis.
+
+Git repositories will be used for project implementation, version control, and submission. Project implementations are submitted as branches in your assigned repository. These branches must be submitted prior to the due date for each assignment. Your implementation will be checked out and executed by the course staff. You will be notified by the course staff whether your implementation is sufficient for checking off the assignment. If your assignment is insufficient for receiving a check, your group is allowed one regrade (per assignment) with 2 weeks of notification. If deemed necessary, the course staff may require an interactive demonstration of your implementation and/or a web-based written report.
+
+<h3>Repositories</h3>
+
+<p>
+The course staff will provide a git repository (through github) for each student group to check in project source code and reports, unless you request using separate service or repository. Please refer to <a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/">this tutorial</a> for an in-depth introduction to git and version control.  Although it has a coarse language choice, this is also a great and accessible <a href="http://rogerdudler.github.io/git-guide/">tutorial<a>.  We expect students to use these repositories for collaborative development as well as project submission. It is the responsibility of each student group to ensure their repository adheres to the Collaboration Policy and submission standards for each assignment. Submission standards and examples will be described for each assignment.
+
+<h3>Late Policy</h3>
+<p>
+Do not be late submitting assignments. The course staff reserves the right to not grade late submissions.  
+
+<h3>200-Level Credit</h3>
+<p>
+CS148 can be taken for 200-level (graduate) credit.  For 200-level credit, a grad of A must be earned.
+
+<h2 id="schedule">Tentative Schedule</h2>
+<p>
+<ul>
+<li>Week 1: Introduction, Motors and Sensors, Basic JavaScript (Chapter 1)</li>
+<li>Assignment 1 out: Getting familiar with 3jsbot</li>
+
+<p>
+<li>Week 2: Robot Kinematics, URDF, Linear Alegbra Refresher, 2D Transforms, 3D Transforms (Chapter 2)</li>
+<li>Assignment 1 due: Getting familiar with 3jsbot</li>
+<li>Assignment 2 out: Draw robot </li>
+
+<p>
+<li>Week 3: Forward Kinematics, Matrix Stack (Chapter 3); Not covered: D-H notioat</li>
+
+<p>
+<li>Week 4: Quaternions, Proportional-Derivative control (Handout)</li>
+<li>Assignment 2 due: Draw robot</li>
+<li>Assignment 3 out: Control robot joints</li>
+
+<p>
+<li>Week 5: Inverse Kinematics, Geometric Jacobian, Pseudo Inverse (Chapter 4)</li>
+
+<p>
+<li>Week 6: Motion Planning, Probabilistic Roadmaps, RRT Connect (Chapter 5)</li>
+<li>Assignment 3 due: Control robot joints</li>
+<li>Assignment 4 out: Reach-to-point </li>
+
+<p>
+<li>Week 7: Simple collision detection (TBD), Potential Fields (Chapter 5)</li>
+
+<p>
+<li>Week 8: Monte Carlo Localization</li>
+<li>Assignment 4 due: Reach-to-point</li>
+<li>Assignment 5 out: Move-to-pose </li>
+
+<p>
+<li>Week 9: Range Sensing, 2.5D Point Clouds, Moving Least Squares </li>
+
+<p>
+<li>Week 10: Newton-Euler Dynamics</li>
+<li>Assignment 5 due: Move-to-pose</li>
+<li>Assignment 6 out: The best use of robotics? </li>
+
+<p>
+<li>Week 11: Class presentations, Robot Lab Demos, Quad Rotor Helicopters</li>
+<li>Assignment 6 due: The best use of robotics? </li>
+
+<p>
+<li>Week 12: TBD</li>
+</ul>
+
+<h2>Collaboration Policy</h2>
+<p>
+ This policy covers all course material and assignments unless otherwise stated. Course material and Turtlebot/ROS information and documentation may be discussed with anyone. Course material does not include assignment handouts. Assignments may be discussed with the other cs148 students. Discussions may make use of a whiteboard or paper. Discussions outside of your group cannot include writing or debugging code on a computer. You may take notes away from these discussions, provided these notes do not include any source code.
+
+The code for your implementation may not be shown to anyone outside of your group, including granting access to repositories or careless lack of protection. You do not need to hide the screen from anyone, but you should not attempt to show anyone your code. When you are done using any robot device such that another group may use it, you must remove all code you have put onto the device. You may not share your code with others outside of your group. At any time, you may show others the implemented program running on a device or simulator, but you may not discuss specific debugging details about your code while doing so.
+
+Should you fail to abide by this policy, you will receive no credit for this course. Brown also reserves the right to pursue any means necessary to ensure compliance. This includes, but is not limited to prosecution through Brown University’s Student Conduct Procedures, which can result in your suspension or expulsion from the University 
+
+<!--
+        <h2>Get Started</h2>
+
+        <ul>
+            <li class="yui3-menu-active"></li>
+            <li><a href="http://github.com/BrownCS148/">Github</a></li>
+            <li><a href="http://github.com/tilomitra/">Other Projects</a></li>
+        </ul>
+
+    <div class="content">
+        <h2>Get Started</h2>
+        <p><a href="http://github.com/tilomitra/prettypages/">PrettyPages</a> is just an HTML template that makes it easy for you to create nice looking Github Pages for your projects. This page was created using PrettyPages. </p>
+
+        <a href="http://github.com/tilomitra/prettypages/" class="yui3-button primary-button">View on Github</a>
+
+        <h2>About</h2>
+        
+        <p>PrettyPages comes with a flat horizontal menu, where you can place links, and add the title of your project. This menu is responsive at lower screen sizes.</p>
+
+        <p>You can also add pretty code snippets that have syntax highlighting thanks to <a href="http://craig.is/making/rainbows">RainbowJS</a>! These come in a variety of different <a href="https://github.com/ccampbell/rainbow/tree/master/themes">themes</a>.</p>
+
+<pre><code data-language="javascript">
+    YUI().use('node', function(Y) {
+      Y.log('YUI Loaded. Vroom vroom!');
+    });
+
+</code></pre>
+
+        <p>You can also display nice looking buttons thanks to YUI's CSSButton module. Add the <code>.yui3-button</code> class to a <code>a</code> element to make a nice looking button, and add the <code>primary-button</code> class to make a really big callout button.</p>
+
+        <a class="yui3-button">Regular button</a>
+        <a class="yui3-button primary-button">Primary button</a>
+
+
+        <h2>More Content</h2>
+        <p>
+            In general, all your content should be placed inside a <code>div class="content"</code>. You can use <code>code</code> elements to highlight inline-code. If you want sub-headings, those are nicely styled too. 
+        </p>
+
+        <h3>A sub-heading</h3>
+
+        <p>
+            Use <code>h3</code> for subheadings! If you want something smaller, you can go for an <code>h4</code>.
+        </p>
+
+        <h4>A sub-sub heading</h4>
+        <p>That's what an <code>h4</code> looks like.</p>
+
+-->
+
+        <!-- TYPEKIT -->
+        <script type="text/javascript" src="//use.typekit.net/ajf8ggy.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script src="https://rawgithub.com/ccampbell/rainbow/master/js/rainbow.min.js"></script>
+        <script src="https://rawgithub.com/ccampbell/rainbow/master/js/language/generic.js"></script>
+    </div>
+</body>
+</html>
