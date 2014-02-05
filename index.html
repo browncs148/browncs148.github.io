@@ -42,6 +42,7 @@
             <li><a href="http://github.com/BrownCS148/">Github</a></li>
             <li><a href="https://github.com/odestcj/3jsbot_stencil">3jsbot_stencil</a></li>
             <li><a href="assignment1">Assignment 1</a></li>
+            <li><a href="assignment2">Assignment 2</a></li>
         </ul>
     </div>
     <div class="header yui3-u-1">
@@ -222,15 +223,79 @@ In the next assignment, we will put these pieces together to form the robot desc
 Please email Suzanne Alden (firstname_lastname@brown.edu) with your name, email address, and pointer to your repository.
 <p>
 Also, please ensure the instructor has read/commit access to your repository.  Such issues can be addressed through email or office hours.
-
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment 1".  The "Assignment 1" branch is essentially a tag and should not be merged back into the master.  You should work from the master.
 <p>
 
 <p>
+<img src="3jsbot_welcome.png">
+
+<p>
+Your task is to make these objects responsive to keyboard commands, specifically to move upward and stop/start jittering (although more is encouraged).  To do this, you will modify "home.html" within the sections delimited by "// CS148: INITIAL GETTING FAMILIAR CODE".  These sections also include code examples meant to be a quick (and very rough) introduction to JavaScript, assuming programming competency in another language. 
+
+Please be sure that the course instructor knows what repository you are using, and your branch is created and not modified past the deadline.
+<p>
+In the next assignment, we will put these pieces together to form the robot described in "robots/br2.js".
+
+
+<p>
+
+<h2 id="assignment2">Assignment 2: Draw Robot</h2>  
+<p>
+<b>Due 9am, Wednesday, February 19, 2014</b>
+<p>
+In this assignment, you will render the forward kinematics of a robot, given its kinematic specification (in the "robots" subdirectory).  To render the robot properly, you will compute matrix transforms for each link and joint of the robot based their hierarchical configuration.  We will assume the joints will remain in their zero position, saving joint motion for Assignment 3.  
+
+Each file in the robots subdirectory contains code to create a robot data object and initializes this object with the kinematic description of a robot (as well as some meta information and rendering geometries).  This kinematic description defines a hierarchical configuration of the robot's links and joints.  This description is a subset of the <a href="http://wiki.ros.org/urdf">Unified Robot Description Format (URDF)</a>, as described in <a href="http://wiki.ros.org/urdf/Tutorials/Create%20your%20own%20urdf%20file">this tutorial</a>.  From this initialization, you should extend the robot object to:
+
+<p>
+<ul>
+<li> construct the kinematic hierarchy, by modifying the init_robot_joints() function in home.html </li>
+<li> include "3jsbot_forward_kinematics.js" and "3jsbot_matrix.js" in home.html </li>
+<li> invoke traversal of forward kinematics, by uncommenting robot_forward_kinematics() in my_animate() in home.html </li>
+<li> implement matrix support routines in 3jsbot_matrix.js </li>
+<li> implement recursive traversal of joints and links 3jsbot_forward_kinematics.js, starting from robot_forward_kinematics(), to compute transformation matrices for: </li>
+<ul>
+<li> robot.origin.xform: global position and orientation of robot </li>
+<li> robot.links[xx].xform: transform of link in global coordinates </li>
+<li> robot.joints[xx].origin.xform: transform of joint origin in global coordinates </li>
+<li> robot.joints[xx].xform: transform resulting from joint rotation in global coordinates.</li> 
+<ul>
+<li>For this assignment, robot.joints[x].xform equals robot.joints[x].origin.xform times the identity matrix (i.e., no rotation of the joint)</li>
+</ul>
+</ul>
+<li> for each link and joint, set its transformation for rendering by coverting the transform to the threejs format and applying it to the associated threejs geometry (.geom), such as:
+<pre><code data-language="javascript">
+    var tempmat = matrix_2Darray_to_threejs(robot.joints[xx].xform);
+    simpleApplyMatrix(robot.joints[xx].geom,tempmat);
+</code></pre>
+</ul>
+
+<p>
+
+If implemented properly, the robot_urdf_example.js example should produce the following rendering:
+
+<img src="asgn2_urdf_example.png">
+<p>
+
+The robot_br2_example.js should produce the following:
+<p>
+<img src="asgn2_br2_example.png">
+
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment 2".  
+<p>
+
+
+
 
 
 
 
 <p>
+<br>
+<br>
+
 <img src="http://farm3.static.flickr.com/2082/5713400530_eac4bbb8ef_z.jpg">
 
 <!--
