@@ -292,6 +292,7 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 If the assignment is completed correctly, you should additionally be able to interactively highlight joints by uncommenting the following in 3jsbot.js:
 
 <pre><code data-language="javascript">
+/*
     // initialize the active link/joint for control
     active_link = robot.base;
     active_joint = robot.links[active_link].children[0];
@@ -299,6 +300,7 @@ If the assignment is completed correctly, you should additionally be able to int
     //robot.links[active_link].geom.material.opacity = 0.5;
     robot.joints[active_joint].display_geom.material.wireframe = false;
     robot.joints[active_joint].display_geom.material.opacity = 0.5;
+*/
 </code></pre>
 
 This will allow you to move up and down the kinematic hierarchy with the "k" and "j" keys, respectively.  You can also move between the children of a link using the "h" and "l" keys.
