@@ -250,7 +250,7 @@ Each file in the robots subdirectory contains code to create a robot data object
 
 <p>
 <ul>
-<li> construct the kinematic hierarchy, by modifying the init_robot_joints() function in home.html </li>
+<li> complete the kinematic hierarchy to specify the parent and children of each link, by modifying the init_robot_joints() function in home.html.</li>
 <li> include "3jsbot_forward_kinematics.js" and "3jsbot_matrix.js" in home.html </li>
 <li> invoke traversal of forward kinematics, by uncommenting robot_forward_kinematics() in my_animate() in home.html </li>
 <li> implement matrix support routines in 3jsbot_matrix.js </li>
@@ -282,12 +282,26 @@ The robot_br2_example.js should produce the following:
 <p>
 <img src="asgn2_br2_example.png">
 
+
 <p>
 For turning in your assignment, create a branch in your repository labeled "Assignment 2".  
 <p>
 
+<h3>Update</h3>
+<p>
+If the assignment is completed correctly, you should additionally be able to interactively highlight joints by uncommenting the following in 3jsbot.js:
 
+<pre><code data-language="javascript">
+    // initialize the active link/joint for control
+    active_link = robot.base;
+    active_joint = robot.links[active_link].children[0];
+    //robot.links[active_link].geom.material.wireframe = false;
+    //robot.links[active_link].geom.material.opacity = 0.5;
+    robot.joints[active_joint].display_geom.material.wireframe = false;
+    robot.joints[active_joint].display_geom.material.opacity = 0.5;
+</code></pre>
 
+This will allow you to move up and down the kinematic hierarchy with the "k" and "j" keys, respectively.  You can also move between the children of a link using the "h" and "l" keys.
 
 
 
