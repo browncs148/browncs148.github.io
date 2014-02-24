@@ -43,6 +43,8 @@
             <li><a href="https://github.com/odestcj/3jsbot_stencil">3jsbot_stencil</a></li>
             <li><a href="#assignment1">Assignment 1</a></li>
             <li><a href="#assignment2">Assignment 2</a></li>
+            <li><a href="#assignment3">Assignment 3</a></li>
+            <li><a href="#assignment4">Assignment 4</a></li>
         </ul>
     </div>
     <div class="header yui3-u-1">
@@ -167,12 +169,12 @@ Should you fail to abide by this policy, you will receive no credit for this cou
 <a href="https://www.dropbox.com/s/sbe4b5000w6uoma/cs148_2014_robotics_3_fk_quaternions.pdf">Slides</a>
 
 <p>
-<li>Week 4: Proportional-Derivative control, Inverse Kinematics (Chapter 4)</li>
+<li>Week 4: Numerical Integrators for Pendulum example, Proportional-Derivative control</li>
 <li>Assignment 2 due: Draw robot</li>
 <li>Assignment 3 out: Control robot joints</li>
 
 <p>
-<li>Week 5: Geometric Jacobian, Pseudo Inverse (Chapter 4)</li>
+<li>Week 5: Inverse Kinematics, Geometric Jacobian, Pseudo Inverse (Chapter 4)</li>
 
 <p>
 <li>Week 6: Motion Planning, Probabilistic Roadmaps, RRT Connect (Chapter 5)</li>
@@ -307,6 +309,60 @@ If the assignment is completed correctly, you should additionally be able to int
 <p>
 
 This will allow you to move up and down the kinematic hierarchy with the "k" and "j" keys, respectively.  You can also move between the children of a link using the "h" and "l" keys.
+
+<p>
+
+<h2 id="assignment3">Assignment 3: Pendulum Simulation and Control (a detour) </h2>  
+<p>
+<b>Due 9am, Wednesday, March 5, 2014</b>
+<p>
+
+To get a sense of physical dynamics and control, your task is to implement a physical simulator and servo controller for a frictionless <a href="http://en.wikipedia.org/wiki/Pendulum">simple pendulum</a> with a rigid massless rod, and then control this system as a 1 DOF robot with a single motor.  The <a href="https://github.com/odestcj/3jsbot_stencil/tree/master/pendulum">code stencil</a> for this pendulum example has been placed in the 3jsbot_stencil repository.
+<p>
+<a href="pendulum_threejs_2.png"><img src="pendulum_threejs_2_small.png"></a>
+
+<p>
+For physical simulation, you will implement two numerical integrators (<a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> and <a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a>.) for a pendulum with parameters specified in the code stencil.  The numerical integrator will advance the state (angle and velocity) of the pendulum in time given the current acceleration (generated from the pendulum equation of motion).  If implemented successfully, this ideal pendulum should oscillate about the vertical (where the angle is zero) proportional to the pendulum's initial angle.
+
+<p>
+For motion control, you will implement a <a href="http://en.wikipedia.org/wiki/PID_controller">proportional-integral-derivative controller</a> to control the system's motor to a desired angle.  This PID controller should output control forces integrated into the system's dynamics.  You will need to tune the gains of the PID controller for stable and timely motion to the desired angle for pendulum with parameters: length=2.0, mass=2.0, gravity=9.81.  
+
+<p>
+For user input, you should be able to use the 'q' and 'e' keys to decrement and increment the desired angle of the 1 DOF servoed robot arm, and hold down the 's' key zero the robot's controls and allow it to swing uncontrolled.
+
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-3".  
+<p>
+
+<p>
+
+<h2 id="assignment3">Assignment 4: Control Robot </h2>  
+<p>
+<b>Due 9am, Friday, March 14, 2014</b>
+<p>
+
+For this assignment, you will now add motor rotation to your robot from Assignment 2 with PID control from Assignment 3.  You will implement angular rotation about each joint axis using quaternions for axis-angle rotation.  You should create an "angle" property for each joint that is initialized as zero.  The rotation due to joint angles should be accounted for in the robot's forward kinematics and implemented as quaternions in "3jsbot_quaterion.js".  Remember to uncomment the include of "3jsbot_quaterion.js" in "home.html" and the joint rendering cylinder rotation in "3jsbot.js".
+
+<a href="asgn4_joint_rotation.png"><img src="asgn4_joint_rotation_small.png"></a>
+
+<p>
+Once joint axis rotation is implemented, you will implement movement controls and PD control for the robot.  You should create an "control" property for each joint and global DOF that is initialized as zero, and a "servo" property with PD gains and desireds.  In "home.html", you should uncomment the function call to robot_apply_controls() and code segment around robot_pd_control(), and implement these functions respectively in "3jsbot_controls.js" and "3jsbot_pd_control.js".  robot_apply_controls() should add the controls to the joint angle state and global pose of the robot.  For the joint angles, robot_pd_control() should implement a simple proportional-derivative controller that updates to the desired angle based on the seconds of the system clock.  The following code snippet shows how to get the current system time and seconds, and scale this value to span 0.2*Math.PI.
+
+<p>
+<pre><code data-language="javascript">
+    var curdate = new Date();
+    curdate.getSeconds()/60*2*Math.PI;
+</code></pre>
+
+<p>
+For user input, you should be able to use the 'u' and 'i' keys to decrement and increment the rotation angle the selected joint, 'wasd' keys to move the robot on the ground plane, 'q' and 'e' keys for lateral base movement, and hold down the 'o' key to servo based on the system seconds. controls and allow it to swing uncontrolled.
+
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-4".  
+<p>
+
+<p>
+
 
 
 
