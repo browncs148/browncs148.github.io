@@ -343,7 +343,7 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 
 <p>
 
-<h2 id="assignment3">Assignment 4: Control Robot </h2>  
+<h2 id="assignment4">Assignment 4: Control Robot </h2>  
 <p>
 <b>Due 9am, Friday, March 14, 2014</b>
 <p>
@@ -374,6 +374,75 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <p>
 <a href="https://www.dropbox.com/s/jlxhfvkh0ytybjz/cs148_2014_robotics_3a_assignment4_addendum.pdf">Addendum slides</a> with more details about user input and controls for base motion.
 
+<p>
+
+<h2 id="assignment5">Assignment 5: Reach-to-point </h2>  
+<p>
+<b>Due 9am, Friday, April 4, 2014</b>
+<p>
+
+<img src="3jsbot_snapshot_2.png" width=600>
+
+<p>
+For this assignment, you will now control your robot to reach to a given point through inverse kinematics for position control of the robot endeffector.  Inverse kinematics will be implemented through both the Jacobian Transpose and Jacobian Pseudoinverse methods, although only one will be invoked at run-time.  
+
+The core of this assignment is to complete the robot_inverse_kinematics() function invoked from home.html.  This function will be called with three arguements: the variable ik_target (used by 3jsbot_userinput.js) to specify the IK target location in the world frame, the name of the joint directly connected to the endeffector, and the location of the endeffector in the local joint frame.  The following is an example of invoking robot_inverse_kinematics():
+
+<pre><code data-language="javascript">
+    robot_inverse_kinematics(ik_target, "forearm_right_yaw", [[0],[0],[0.5],[1]]);
+</code></pre>
+
+<p>
+The top level of robot_inverse_kinematics is provided below, and is the beginning of your implementation in the file 3jsbot_inverse_kinematics.js:  
+
+
+<p>
+<pre><code data-language="javascript">
+function robot_inverse_kinematics(target_pos, endeffector_joint, endeffector_local_pos) {
+    // compute joint angle controls to move location on specified link to Cartesian location
+    if (update_ik) {
+        iterate_inverse_kinematics(target_pos, endeffector_joint, endeffector_local_pos);
+        endeffector_geom.visible = true;
+        target_geom.visible = true;
+    }
+    else {
+        endeffector_geom.visible = false;
+        target_geom.visible = false;
+    }
+    update_ik = false;
+
+}
+</code></pre>
+<p>
+
+This code stub contains clauses to handle rendering of the endeffector (endeffector_geom) and target (target_geom) geometries and when to perform IK iterations (which occurs while holding down the 'p' key through 3jsbot_userinput.js).  Both endeffector_geom and target_geom have been previously created by 3jsbot, so your code only needs to set the transform using simpleApplyMatrix() for proper rendering.  Further, the 'r'/'f' keys will move the target location up/down, respectively.
+
+<p>
+In implementing this IK routine, please remember the following:
+<p>
+<ul>
+<li>Computation of the Jacobian should only occur with respect to the joints along the chain from the endeffector joint to the robot base</li>
+<li>The location of the endeffector needs to be computed using transforms resulting from the robot's forward kinematics  </li>
+<li>Matrix inversion can be invoked by using the provided routine numeric.inv(mat), available through <a href="http://www.numericjs.com/">numericjs</a> </li>
+<li>The computed velocity in configuration should be applied to the robot through the joint.controls field of each joint </li>
+<li>This assignment is only for positional control of the robot endeffector with respect to computing IK error</li>
+</ul>
+
+
+<p>
+
+<h2 id="assignment6">Assignment 6: Collision-free Move-to-pose  </h2>  
+<p>
+<b>Due 9am, Friday, April 25, 2014</b>
+<p>
+Project details to be released.
+<p>
+
+<h2 id="assignment7">Assignment 7: The best use of robotics? </h2>  
+<p>
+<b>Due 3pm, Friday, April 28, 2014</b>
+<p>
+Project details to be released.
 <p>
 
 
