@@ -46,6 +46,7 @@
             <li><a href="#assignment3">asgn3</a></li>
             <li><a href="#assignment4">asgn4</a></li>
             <li><a href="#assignment5">asgn5</a></li>
+            <li><a href="#assignment6">asgn6</a></li>
         </ul>
     </div>
     <div class="header yui3-u-1">
@@ -123,10 +124,19 @@ Wiley, 2005
 <br>
 <a href="http://www.amazon.com/Robot-Modeling-Control-Mark-Spong/dp/0471649902">Available at Amazon</a>
 
+<p>
+<h4>Optional text</h4>
+<p>
+<a href="http://mitpress.mit.edu/books/principles-robot-motion"><b>Principles of Robot Motion</b></a>
+<br>
+Howie Choset, Kevin M. Lynch, Seth Hutchinson, George A. Kantor, Wolfram Burgard, Lydia E. Kavraki and Sebastian Thrun
+<br>
+MIT Press, 2005
+
 <h2>Projects and Grading</h2>
 
 <p>
-There will be 6 projects in CS148: 5 programming assignment and 1 oral/written assignment.  CS 148 projects are graded as “checked” (completed) or “not checked” (incomplete). To receive an A grade in the course, you must have all assignments checked by the end of reading period. For a B grade, 4 assignments must be checked. Less than 4 checks will result in no credit for the course.  The timing and due dates for these projects will be announced on an ongoing basis.
+There will be 7 projects in CS148: 6 programming assignments and 1 oral/written assignment.  CS 148 projects are graded as “checked” (completed) or “not checked” (incomplete). To receive an A grade in the course, you must have all assignments checked by the end of reading period. For a B grade, 5 assignments must be checked. Less than 5 checks will result in no credit for the course.  The timing and due dates for these projects will be announced on an ongoing basis.
 
 Git repositories will be used for project implementation, version control, and submission. Project implementations are submitted as branches in your assigned repository. These branches must be submitted prior to the due date for each assignment. Your implementation will be checked out and executed by the course staff. You will be notified by the course staff whether your implementation is sufficient for checking off the assignment. If your assignment is insufficient for receiving a check, your group is allowed one regrade (per assignment) with 2 weeks of notification. If deemed necessary, the course staff may require an interactive demonstration of your implementation and/or a web-based written report.
 
@@ -183,11 +193,14 @@ Should you fail to abide by this policy, you will receive no credit for this cou
 
 <p>
 <li>Week 6: Motion Planning, Probabilistic Roadmaps, RRT Connect (Chapter 5)</li>
+<a href="https://www.dropbox.com/s/bmx8dazfdggtstp/cs148_2014_robotics_6_motionplanning.pdf">Slides</a>
+<li>Handout: <a href="https://personalrobotics.ri.cmu.edu/courses/papers/Kuffner00-rrtconnect.pdf">RRT-Connect: An Efficient Approach to Single-Query Path Planning</a> by Kuffner and LaValle, ICRA 2000. </li>
 <li>Assignment 4 due: Control robot joints </li>
 <li>Assignment 5 out: Reach-to-point </li>
 
 <p>
 <li>Week 7: Simple collision detection (TBD), Potential Fields (Chapter 5)</li>
+<a href="https://www.dropbox.com/s/bmx8dazfdggtstp/cs148_2014_robotics_6_motionplanning.pdf">Slides</a> (continued from week 6)
 
 <p>
 <li>Week 8: Monte Carlo Localization</li>
@@ -211,7 +224,12 @@ Should you fail to abide by this policy, you will receive no credit for this cou
 </ul>
 
 <p>
-Slides from this course borrow from and are indebted to many sources from around the web.  
+Slides from this course borrow from and are indebted to many sources from around the web.  These source include a number of excellent robotics courses:
+
+<ul>
+<li><a href="http://www-clmc.usc.edu/teaching/introductiontorobotics">USC CS 545: Introduction to Robotics</a></li>
+<li><a href="https://cirl.lcsr.jhu.edu/SensorBasedRobotics/">JHU 600.336 - Algorithms for Sensor-Based Robotics</a></li>
+</ul>
 
 <h2 id="assignment1">Assignment 1: Getting familiar with 3jsbot</h2>  
 <p>
@@ -330,7 +348,7 @@ To get a sense of physical dynamics and control, your task is to implement a phy
 <a href="pendulum_threejs_2.png"><img src="pendulum_threejs_2_small.png"></a>
 
 <p>
-For physical simulation, you will implement two numerical integrators (<a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> and <a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a>.) for a pendulum with parameters specified in the code stencil.  The numerical integrator will advance the state (angle and velocity) of the pendulum in time given the current acceleration (generated from the pendulum equation of motion).  If implemented successfully, this ideal pendulum should oscillate about the vertical (where the angle is zero) proportional to the pendulum's initial angle.
+For physical simulation, you will implement two numerical integrators (<a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> and <a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a>) for a pendulum with parameters specified in the code stencil.  The numerical integrator will advance the state (angle and velocity) of the pendulum in time given the current acceleration (generated from the pendulum equation of motion).  If implemented successfully, this ideal pendulum should oscillate about the vertical (where the angle is zero) proportional to the pendulum's initial angle.
 
 <p>
 For motion control, you will implement a <a href="http://en.wikipedia.org/wiki/PID_controller">proportional-integral-derivative controller</a> to control the system's motor to a desired angle.  This PID controller should output control forces integrated into the system's dynamics.  You will need to tune the gains of the PID controller for stable and timely motion to the desired angle for pendulum with parameters: length=2.0, mass=2.0, gravity=9.81.  
@@ -436,7 +454,179 @@ In implementing this IK routine, please remember the following:
 <p>
 <b>Due 9am, Friday, April 25, 2014</b>
 <p>
-Project details to be released.
+
+<img src="asgn6_motionplan.png" width=800>
+<p>
+
+For this assignment, you will now implement a collision-free motion planner to enable your robot to navigate from a random configuration in the world to its home configuration (marked by the "X" on the world floor).  Motion planning will be implemented through the <a href="http://www.ted.com/talks/henry_evans_and_chad_jenkins_meet_the_robots_for_humanity">RRT-Connect algorithm</a> (described by Kuffner and LaValle).  The core of this assignment is to complete the robot_rrt_planner_init() and robot_rrt_planner_iterate() in the provided 3jsbot_rrt_connect.js stencil.  For successful execution, your implementation of RRT-Connect, the provided collision detection system, and a single specification of world geometry will need to be included in home.html:
+
+
+<pre><code data-language="javascript">
+<script src="3jsbot_rrt_connect.js"></script> 
+<script src="3jsbot_collision.js"></script> 
+<script src="worlds/world_basic.js"></script>
+<!--
+<script src="worlds/world_empty.js"></script>
+<script src="worlds/world_random.js"></script>
+<script src="worlds/world_local_minima.js"></script>
+<script src="worlds/world_s.js"></script>
+-->
+</code></pre>
+
+<p>
+
+Note: your planner should be constrained such that the search does not consider configurations where the base is outside the X-Z plane.  Specifically, the base should not translate along the Y axis, and should not rotate about the X and Z axes.
+
+<h3>First step: add collision detection</h3> 
+<p>
+Your RRT-Connect implementation will depend on detection of collisions (provided by the function robot_collision_test() in 3jsbot_collision.js) with respect to a specified world geometry.  Worlds are specified as a rectangular boundary and sphere obstacles.  A collection of worlds are provided in the "worlds/" subdirectory of 3jsbot_stencil.  The collision detection system performs two forms of tests: 1) testing of the base position of the robot against the rectangular extents of the world, and 2) testing of the robot configuration against spherical objects.  Configuration collision testing is performed by AABB/Sphere tests that require the bounding box of each link's geometry in the coordinates of that link.  This bounding box is computed by adding the following within the loop inside init_robot_links_geoms() in 3jsbot.js:
+
+<pre><code data-language="javascript">
+        // bounding box of robot link in local link coordinates
+        robot.links[x].bbox = new THREE.Box3;
+        robot.links[x].bbox = robot.links[x].bbox.setFromPoints(robot.links[robot.base].geom.geometry.vertices);
+</code></pre>
+
+<p>
+Even before your planner is implemented, you can use the collision system interactively with your robot.  The provided robot_iscollision() function will test the the current configuration of the robot.  If a collision occurs, the base of the robot will be displayed as a solid red.  The call to robot_iscollision() should be placed within my_animate() in home.html:
+
+<pre><code data-language="javascript">
+    // show if robot is currently in collision
+    robot_iscollision();
+</code></pre>
+
+<p>
+<img src="asgn6_collision.png" width=600>
+<p>
+
+If successful to this point, you should be able to see the collision world of the robot, move around this world, and see the base display solid red when a collision occurs.
+
+<h3>Invoking the planner</h3> 
+
+<p>
+Your planner will be invoked interactively by first moving the robot to an arbitrary non-colliding configuration in the world and then pressing the "m" key.  The "m" key will request the generation of a motion plan.  While the planner is working, it will not accept new planning requests.  Thus, you can move the robot around while the planner is executing.
+
+<p>
+Invokation of the planner is implemented by adding the following code segments to: 
+
+<p>
+<ul>
+<li> init_robot() in home.html:
+
+<p>
+<pre><code data-language="javascript">
+    // initialize flags for executing planner
+    generating_motion_plan = false;
+    generate_motion_plan = false;
+</code></pre>
+
+<p>
+<li> my_animate() in home.html:
+
+<p>
+<pre><code data-language="javascript">
+    // configuration space motion planning
+    if ((generate_motion_plan) && (!generating_motion_plan)) {
+        robot_rrt_planner_init();
+        generating_motion_plan = true;
+        generate_motion_plan = false;
+    }
+    if (generating_motion_plan) {
+        //robot_rrt_connect(q_desired);
+        rrt_result = robot_rrt_planner_iterate();
+        if (rrt_result === "reached") {
+            //alert("home: reached");
+            generating_motion_plan = false;
+        }
+    }
+</code></pre>
+
+<p>
+<li> user_input() in 3jsbot_userinput.js:
+
+<p>
+<pre><code data-language="javascript">
+    // generate motion plan
+    if ( keyboard.pressed("m") )
+        generate_motion_plan = true;
+    else
+        generate_motion_plan = false;
+</code></pre>
+</ul>
+
+<h3>Planner output</h3> 
+<p>
+The output of your planner will be a sequentially ordered array (named robot_path[]) of RRT vertices, where each RRT vertex contains a robot configuration (.vertex), an array of edges (.edges), and a threejs indicator geometry (.geom).  The 3jsbot_rrt_connect.js stencil has provide routines that describe how new vertices can be added to the RRT.  One a viable motion plan is found, this path can be highlighted by changing the color of the RRT vertex geom indicators, similar to the following:
+
+<pre><code data-language="javascript">
+        robot_path[i].geom.material.color = {r:1,g:0,b:0};
+</code></pre>
+<p>
+
+The user should should be able to interactively move the robot through the found plan.  After adding the following code below to user_input() in 3jsbot_userinput.js, the "n" and "b" keys to move the robot to the next and previous configuration in the found path, respectively.
+
+<pre><code data-language="javascript">
+    // traverse generated motion plan
+    if ( keyboard.pressed("n") |  keyboard.pressed("b")) {
+        if (typeof robot_path !== 'undefined') {
+
+            // increment index
+            if ((keyboard.pressed("n"))&&(robot_path_traverse_idx<robot_path.length-1))
+                robot_path_traverse_idx++;
+            if ((keyboard.pressed("b"))&&(robot_path_traverse_idx>0))
+                robot_path_traverse_idx--;
+
+             // set angle
+            robot.origin.xyz = [
+                robot_path[robot_path_traverse_idx].vertex[0],
+                robot_path[robot_path_traverse_idx].vertex[1],
+                robot_path[robot_path_traverse_idx].vertex[2]
+            ];
+
+            robot.origin.rpy = [
+                robot_path[robot_path_traverse_idx].vertex[3],
+                robot_path[robot_path_traverse_idx].vertex[4],
+                robot_path[robot_path_traverse_idx].vertex[5]
+            ];
+
+            for (x in robot.joints) {
+                //q_names[x] = q_start_config.length;
+                robot.joints[x].angle = robot_path[robot_path_traverse_idx].vertex[q_names[x]];
+            }
+        }
+    }
+</code></pre>
+
+Note: we are <b>NOT</b> using robot.controls to execute the found path of the robot.  Although this can be done, the collision system does not currently test for configurations that occur due to the motion between configurations.
+
+<h3>Testing</h3>
+
+<p>
+<img src="asgn6_scurve_small.png" width=800>
+
+<p>
+Make sure to test from a reasonable set of robots and initial configurations within all of the provided worlds, ensuring that:
+
+<p>
+<ul>
+<li> a valid non-colliding path is found and can be traversed
+<li> the robot does not to take steps longer than 1 unit
+<li> the robot base does not move outside the X-Z plane.  Specifically, the base should not translate along the Y axis, and should not rotate about the X and Z axes.
+</ul>
+
+<p>
+The "br2" robot should be able to navigate all of the provided worlds.
+
+<h3>Optional: HTML5 Canvas Stencil </h3>
+
+<img src="asgn6_rrt_canvas_stencil_small.png">
+
+<p>
+Using the browser for as a development environment has many benefits.  However, when coding mistakes occur, it will make the browser lock up and be completely unusable.  This becomes even worse when the overhead of rendering with threejs is involved.  
+
+<p>
+To help you get started, the code stencil also has a "rrt_canvas" directory where you can implement your RRT in 2D worlds with provided routines for visualization and collision.  Because the RRT is invariant across configuration spaces, an RRT developed for the 2D Canvas world should easily port to the N-D threejs world, with minor changes for invoking drawing routines.
+
 <p>
 
 <h2 id="assignment7">Assignment 7: The best use of robotics? </h2>  
