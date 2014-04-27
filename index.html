@@ -47,6 +47,7 @@
             <li><a href="#assignment4">asgn4</a></li>
             <li><a href="#assignment5">asgn5</a></li>
             <li><a href="#assignment6">asgn6</a></li>
+            <li><a href="#assignment7">asgn7</a></li>
         </ul>
     </div>
     <div class="header yui3-u-1">
@@ -116,7 +117,7 @@ I will do my best to cover the necessary material, but no guarantees.  Linear al
 
 <h2>Textbook</h2>
 <p>
-<a href="http://bcs.wiley.com/he-bcs/Books?action=index&itemId=0471649902&bcsId=2888">Robot Modeling and Control</a>
+<a href="http://bcs.wiley.com/he-bcs/Books?action=index&itemId=0471649902&bcsId=2888"><b>Robot Modeling and Control</b></a>
 <br>
 Mark W. Spong, Seth Hutchinson and M. Vidyasagar
 <br>
@@ -125,7 +126,15 @@ Wiley, 2005
 <a href="http://www.amazon.com/Robot-Modeling-Control-Mark-Spong/dp/0471649902">Available at Amazon</a>
 
 <p>
-<h4>Optional text</h4>
+<h3>Optional texts</h3>
+<p>
+
+<a href="http://shop.oreilly.com/product/9780596517748.do"><b>JavaScript: The Good Parts</b></a>
+<br>
+Douglas Crockford
+<br>
+O'Reilly Media / Yahoo Press, 2008
+
 <p>
 <a href="http://mitpress.mit.edu/books/principles-robot-motion"><b>Principles of Robot Motion</b></a>
 <br>
@@ -629,16 +638,33 @@ To help you get started, the code stencil also has a "rrt_canvas" directory wher
 
 <p>
 
+<h3>Update</h3>
+<p>
+You will need to modify the forward kinematics calls in 3jsbot_collision.js.  3jsbot_collision.js uses matrix and quaternion calls based on the reference implementation (i.e., my code).  Your matrix and quaternion calls likely have a different structure to the function arguments and returned data structures.  You should either:
+
+ <ul> 
+  <li>1) modify calls to matrix/quaternion routines to fit your functions, or
+
+  <li>2) use a modified version of your own FK with the collision test added to the link traversal function (remember: you need the inverse of the matrix stack for collision testing in a link frame)
+</ul>
+<p>
+
+Also, you can feel free to numeric.inv() instead of matrix_invert_affine().  Affine transforms can be inverted (in constant time) through a much simpler process than the generic matrix inversion, which is O(n^3) for Gaussian elimination. 
+<p>
+
 <h2 id="assignment7">Assignment 7: The best use of robotics? </h2>  
 <p>
 <b>Due 3pm, Friday, April 28, 2014</b>
 <p>
-Project details to be released.
+
+Scenario: An investor is considering giving you 3 million dollars (cold hard USD cash, figuratively).  This investor has been impressed by work with 3jsbot and other accomplishments while at Brown.  They are convinced you have the technical ability to make a compelling robot technology... but, they are unsure how this technology could produce something useful.  Your task is to make a convincing pitch for a  robotics project that would yield a high return on investment. 
 <p>
-
-
-
-
+You will get 2 minutes to make a pitch to develop something useful with robots.  Consider the instructor and your classmates as the people that need to be convinced.  As a guideline, your pitch should address an opportunity (presented by a need or a problem), your planned result (as a system, technology, product, and/or service), and how you will measure successful return on investment.  Return on investment can be viewed as financial profit (wrt. venture capital), good for society (wrt. a government program), creation of new knowledge or capabilities (wrt. a grant for scientific research).  Remeber, the purpose is to convince and inspire about what is possible, rather than dive into specifics.
+<p>
+The last scheduled class period (Monday April 28, 3-5pm) will be dedicated to student presentations to pitch ideas on the best use of robotics.  Please email your slides to the instructor before 10am on April 28 with the subject line ("Asgn7 pitch slides").  OS X Keynote will be used as the sole means of slide presentation, and will be timed and controlled by the instructor.  As such, slide materials can be accepted as Keynote, Powerpoint (no guarantees on conversion), PDF, and common image and video formats (JPG, PNG, MP4, FLV, etc.)
+<p>
+The pitch judged to be the most convincing will get first dibs.
+<p>
 
 <p>
 <br>
