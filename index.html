@@ -497,7 +497,7 @@ Your RRT-Connect implementation will depend on detection of collisions (provided
 <pre><code data-language="javascript">
         // bounding box of robot link in local link coordinates
         robot.links[x].bbox = new THREE.Box3;
-        robot.links[x].bbox = robot.links[x].bbox.setFromPoints(robot.links[robot.base].geom.geometry.vertices);
+        robot.links[x].bbox = robot.links[x].bbox.setFromPoints(robot.links[x].geom.geometry.vertices);
 </code></pre>
 
 <p>
