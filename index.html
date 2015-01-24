@@ -39,15 +39,18 @@
         <span class="yui3-menu-heading">BrownCS148</span>
         <ul>
             <li class="yui3-menu-active"><a href="#schedule">schedule</a></li>
-            <li><a href="http://github.com/BrownCS148/">github</a></li>
+            <!-- <li><a href="http://github.com/BrownCS148/">github</a></li> -->
             <li><a href="https://github.com/odestcj/3jsbot_stencil">3jsbot_stencil</a></li>
             <li><a href="#assignment1">asgn1</a></li>
             <li><a href="#assignment2">asgn2</a></li>
+<!--
             <li><a href="#assignment3">asgn3</a></li>
             <li><a href="#assignment4">asgn4</a></li>
             <li><a href="#assignment5">asgn5</a></li>
             <li><a href="#assignment6">asgn6</a></li>
             <li><a href="#assignment7">asgn7</a></li>
+            <li><a href="#assignment8">asgn8</a></li>
+-->
         </ul>
     </div>
     <div class="header yui3-u-1">
@@ -55,7 +58,7 @@
         <h1 class="yui3-u-1">Brown CS 148</h1>
         <h2 class="yui3-u">Introduction to Autonomous Robotics</h2>
         <br>
-        <h2 class="yui3-u">Spring 2014</h2>
+        <h2 class="yui3-u">Spring 2015</h2>
 
      </div>
     <div class="content">
@@ -69,8 +72,7 @@
 CS 148 is an introduction to core topics in the modeling and control of autonomous robots.  This course focuses on the development of “brains for robots”. That is, given a robot as a machine with sensing, actuation, and computation, how do we develop programs that allow the robot to function autonomously? Such programs involve the robot's perception of its world, decision making towards some objective, and transforming decided actions into motor commands.  These are functions commonly used in modern robotics, such as for the PR2 (below).
 <!--We answer this question through a series of lectures, class discussions, and group projects. -->
 <p>
-This year, CS148 projects will model and control robots through projects written in JavaScript/HTML5.  These projects will be supported by the 3jsbot code stencil, which uses <a href="http://threejs.org/">threejs</a> for in-browser 3D rendering.  We will roughly follow software models from the Robot Operating System (ROS) robot middleware framework, such as the URDF kinematic modeling format.  Projects will cover 3D geometric transforms, compositions of matrix transforms, forward kinematics, axis-angle rotation by quaternions, proportional-derivative control, inverse kinematics, simple collision detection, and RRT motion planning, along with coverage of potential field navigation, Monte Carlo localization, and Newton-Euler dynamics.  
-<!--These projects will explore various approaches to robot decision making (spanning reaction to deliberation), perception (basic object recognition and state estimation), and control (proportional-derivative servos). -->
+This year, CS148 projects will model and control robots through projects written in JavaScript/HTML5.  These projects will be supported by the 3jsbot code stencil, which uses <a href="http://threejs.org/">threejs</a> for in-browser 3D rendering, and 2D simulation code stencils using the <a href="http://jsfiddle.net/">jsfiddle</a> development environment.  We will roughly follow software models from the Robot Operating System (ROS) robot middleware framework, such as the URDF kinematic modeling format.  Projects will cover basic physical simulation, proportional-integral-derivative control, 3D geometric transforms, compositions of matrix transforms, forward kinematics, axis-angle rotation by quaternions, inverse kinematics, simple collision detection, and RRT motion planning, along with coverage of potential field navigation, Monte Carlo localization, and Newton-Euler dynamics.  
 
 <p>
 
@@ -80,11 +82,10 @@ This year, CS148 projects will model and control robots through projects written
 <p>
 <h3>Office Hours</h3> 
 <P>
-Monday 10:30-12
+Monday 1-2:30
 <br>
-Thursday 1-2 (when not conflicting with travel)
+Thursday 1-3 (when not conflicting with travel)
 <p>
-Prof. Jenkins administative support person is Suzanne Alden.
 
 <h2>Meeting time/place</h2>
 
@@ -95,9 +96,6 @@ Monday 3:00-5:20 (M Hour) in CIT 368
 
 <p>
 148-robotics@googlegroups.com 
-
-<br> 
-<b>UPDATED:</b> from incorrect pointer to Fall 2011 mailing list
 
 <h2>Prerequisites</h2> 
 
@@ -111,9 +109,9 @@ Any one of the following: CS15, CS17, CS19, or permission from the instructor
 
 Highly Recommended: Linear alegebra
 <br>
-Recommended: computer graphics, computer vision, AI
+Recommended: Differential equations, Computer graphics, Computer vision, Artificial Intelligence
 
-I will do my best to cover the necessary material, but no guarantees.  Linear algebra will be used extensively for representing 3D geometric transforms.  Computer graphics is helpful for under-the-hood understanding of threejs.  Computer vision and AI share common concepts with this course.
+I will do my best to cover the necessary material, but no guarantees.  Linear algebra will be used extensively for representing 3D geometric transforms.  Computer graphics is helpful for under-the-hood understanding of threejs.  Computer vision and AI share common concepts with this course.  Differential equations are used to cover modeling of motion dynamics and inverse kinematics, but not explicitly required.
 
 <h2>Textbook</h2>
 <p>
@@ -145,96 +143,174 @@ MIT Press, 2005
 <h2>Projects and Grading</h2>
 
 <p>
-There will be 7 projects in CS148: 6 programming assignments and 1 oral/written assignment.  CS 148 projects are graded as “checked” (completed) or “not checked” (incomplete). To receive an A grade in the course, you must have all assignments checked by the end of reading period. For a B grade, 5 assignments must be checked. Less than 5 checks will result in no credit for the course.  The timing and due dates for these projects will be announced on an ongoing basis.
+There will be 8 projects in CS148: 7 programming assignments and 1 oral/written assignment.  CS 148 projects are graded as “checked” (completed) or “not checked” (incomplete). To receive an A grade in the course, you must have all assignments checked by the end of reading period. For a B grade, 6 assignments must be checked. Less than 6 checks will result in no credit for the course.  The timing and due dates for these projects will be announced on an ongoing basis.
 
 Git repositories will be used for project implementation, version control, and submission. Project implementations are submitted as branches in your assigned repository. These branches must be submitted prior to the due date for each assignment. Your implementation will be checked out and executed by the course staff. You will be notified by the course staff whether your implementation is sufficient for checking off the assignment. If your assignment is insufficient for receiving a check, your group is allowed one regrade (per assignment) with 2 weeks of notification. If deemed necessary, the course staff may require an interactive demonstration of your implementation and/or a web-based written report.
 
 <h3>Final Grading</h3>
 
-All grading will be finalized on May 10, 2014.  Regrading of specific assignments will be done upon request during office hours.  No regrading will be done after grades are finalized.
+<p>
+All grading will be finalized on May 11, 2015.  Regrading of specific assignments will be done upon request during office hours.  No regrading will be done after grades are finalized.
 
 <h3>Repositories</h3>
 
 <p>
-The course staff will provide a git repository (through github) for each student group to check in project source code and reports, unless you request using separate service or repository. Please refer to <a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/">this tutorial</a> for an in-depth introduction to git and version control.  Although it has a coarse language choice, this is also a great and accessible <a href="http://rogerdudler.github.io/git-guide/">tutorial<a>.  We expect students to use these repositories for collaborative development as well as project submission. It is the responsibility of each student group to ensure their repository adheres to the Collaboration Policy and submission standards for each assignment. Submission standards and examples will be described for each assignment.
+The course staff will provide a git repository (through github) for each student group to check in project source code and reports, unless you request using separate service or repository. Please refer to <a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/">this tutorial</a> for an in-depth introduction to git and version control.  Although it has a coarse language choice, this is also a great and accessible <a href="http://rogerdudler.github.io/git-guide/">tutorial</a>.  We expect students to use these repositories for collaborative development as well as project submission. It is the responsibility of each student group to ensure their repository adheres to the Collaboration Policy and submission standards for each assignment. Submission standards and examples will be described for each assignment.
 
 <h3>Late Policy</h3>
 <p>
-Do not be late submitting assignments. The course staff reserves the right to not grade late submissions.  
+Do not submit assignments late.  The course staff reserves the right to not grade late submissions.  
 
 <h3>200-Level Credit</h3>
 <p>
-CS148 can be taken for 200-level (graduate) credit.  For 200-level credit, a grad of A must be earned.
+CS148 cannot be taken for 200-level (graduate) credit.  Please direct questions about policies and procedures for graduate credit to the CS Director of Graduate Studies.
 
 <h2>Collaboration Policy</h2>
 <p>
- This policy covers all course material and assignments unless otherwise stated. Course material and Turtlebot/ROS information and documentation may be discussed with anyone. Course material does not include assignment handouts. Assignments may be discussed with the other cs148 students. Discussions may make use of a whiteboard or paper. Discussions outside of your group cannot include writing or debugging code on a computer. You may take notes away from these discussions, provided these notes do not include any source code.
+ This policy covers all course material and assignments unless otherwise stated. Course material, concepts, and documentation may be discussed with anyone.  Assignments may be discussed with the other cs148 students at the conceptual level.  Discussions may make use of a whiteboard or paper.  Discussions with others (or people outside of your assigned group) cannot include writing or debugging code on a computer or collaborative analysis of source code that is not your own. You may take notes away from these discussions, provided these notes do not include any source code.
 
 The code for your implementation may not be shown to anyone outside of your group, including granting access to repositories or careless lack of protection. You do not need to hide the screen from anyone, but you should not attempt to show anyone your code. When you are done using any robot device such that another group may use it, you must remove all code you have put onto the device. You may not share your code with others outside of your group. At any time, you may show others the implemented program running on a device or simulator, but you may not discuss specific debugging details about your code while doing so.
 
-Should you fail to abide by this policy, you will receive no credit for this course. Brown also reserves the right to pursue any means necessary to ensure compliance. This includes, but is not limited to prosecution through Brown University’s Student Conduct Procedures, which can result in your suspension or expulsion from the University 
+Should you fail to abide by this policy, you will receive no credit for this course. Brown also reserves the right to pursue any means necessary to ensure compliance. This includes, but is not limited to prosecution through Brown University’s Student Conduct Procedures, which can result in your suspension or expulsion from the University.
 
 
-<h2 id="schedule">Tentative Schedule</h2>
+<h2 id="schedule">Tentative Schedule (subject to change)</h2>
 <p>
 <ul>
 <li>Week 1: Introduction, Motors and Sensors, Basic JavaScript (Chapter 1)</li>
-<a href="https://www.dropbox.com/s/s4ur6sh63iyod5b/cs148_robotics_overview.pdf">Slides</a>
+<a href="https://www.dropbox.com/s/s4ur6sh63iyod5b/cs148_robotics_overview.pdf">
+</a>
+Slides
 <li>Assignment 1 out: Getting familiar with 3jsbot</li>
 
 <p>
-<li>Week 2: Robot Kinematics, URDF, Linear Alegbra Refresher, 2D Transforms, 3D Transforms (Chapter 2)</li>
-<a href="https://www.dropbox.com/s/lmcoogjwzsn2ci2/cs148_2014_robotics_2_transforms.pdf">Slides</a>
+<li>Week 2: 
+Linear alegbra refresher, 
+Lagrangian equations of motion for simple pendulum, 
+numerical integrators, 
+Proportional-Integral-Derivative control
+</li>
+<a href="https://www.dropbox.com/s/lmcoogjwzsn2ci2/cs148_2014_robotics_2_transforms.pdf">
+</a>
+Slides
 <li>Assignment 1 due: Getting familiar with 3jsbot</li>
-<li>Assignment 2 out: Draw robot </li>
+<li>Assignment 2 out: Simple pendulum</li>
 
 <p>
-<li>Week 3: Forward Kinematics, Matrix Stack (Chapter 3), Quaternions; Not covered: D-H notation</li>
-<a href="https://www.dropbox.com/s/sbe4b5000w6uoma/cs148_2014_robotics_3_fk_quaternions.pdf">Slides</a>
+<li>Week 3: 
+Particle dynamics with constraints,
+Relaxation with spring and ground constraints
+</li>
+<a href="https://www.dropbox.com/s/sbe4b5000w6uoma/cs148_2014_robotics_3_fk_quaternions.pdf">
+</a>
+Slides
 
 <p>
-<li>Week 4: Basic Dynamics and Control for Pendulum example, Numerical Integrators, Proportional-Integral-Derivative control</li>
-<a href="https://www.dropbox.com/s/e6ayvr8ntzys1ak/cs148_2014_robotics_4_dynamics_control.pdf">Slides</a>
-<li>Assignment 2 due: Draw robot</li>
-<li>Assignment 3 out: Pendulum Dynamics and Control</li>
-<li>Assignment 4 out: Control robot joints</li>
+<li>Week 4: 
+No class. Long weekend break.
+</li>
+<a href="https://www.dropbox.com/s/e6ayvr8ntzys1ak/cs148_2014_robotics_4_dynamics_control.pdf">
+</a>
+Slides
+<li>Assignment 2 due: Simple pendulum</li>
+<li>Assignment 3 out: N-link planar arm</li>
 
 <p>
-<li>Week 5: Inverse Kinematics, Geometric Jacobian, Pseudo Inverse (Chapter 4)</li>
-<a href="https://www.dropbox.com/s/3vl5dp8lz0xsol2/cs148_2014_robotics_5_ik.pdf">Slides</a>
-<li>Assignment 3 due: Pendulum Dynamics and Control</li>
+<li>Week 5: 
+Robot kinematics, URDF, 
+2D transforms, 3D transforms (Chapter 2)
+</li>
+<a href="https://www.dropbox.com/s/3vl5dp8lz0xsol2/cs148_2014_robotics_5_ik.pdf">
+</a>
+Slides
 
 <p>
-<li>Week 6: Motion Planning, Probabilistic Roadmaps, RRT Connect (Chapter 5)</li>
-<a href="https://www.dropbox.com/s/bmx8dazfdggtstp/cs148_2014_robotics_6_motionplanning.pdf">Slides</a>
+<li>Week 6: 
+Forward Kinematics, 
+Matrix Stack (Chapter 3), 
+Quaternions; 
+Not covered: D-H notation
+</li>
+<a href="https://www.dropbox.com/s/bmx8dazfdggtstp/cs148_2014_robotics_6_motionplanning.pdf">
+</a>
+Slides
+<li>Assignment 3 due: N-link planar arm</li>
+<li>Assignment 4 out: Forward kinematics: draw robot </li>
+
+<p>
+<li>Week 7: 
+Inverse kinematics, 
+Geometric Jacobian, 
+Pseudo Inverse (Chapter 4)
+</li>
+<a href="https://www.dropbox.com/s/bmx8dazfdggtstp/cs148_2014_robotics_6_motionplanning.pdf">
+</a> 
+Slides
+
+<p>
+<li>Week 8: 
+Motion Planning, 
+Probabilistic Roadmaps, 
+RRT Connect (Chapter 5)
+</li>
 <li>Handout: <a href="https://personalrobotics.ri.cmu.edu/courses/papers/Kuffner00-rrtconnect.pdf">RRT-Connect: An Efficient Approach to Single-Query Path Planning</a> by Kuffner and LaValle, ICRA 2000. </li>
-<li>Assignment 4 due: Control robot joints </li>
-<li>Assignment 5 out: Reach-to-point </li>
+<li>Assignment 4 due: Forward kinematics: draw robot </li>
+<li>Assignment 5 out: Forward kinematics: quaternions</li>
 
 <p>
-<li>Week 7: Simple collision detection (TBD), Potential Fields (Chapter 5)</li>
-<a href="https://www.dropbox.com/s/bmx8dazfdggtstp/cs148_2014_robotics_6_motionplanning.pdf">Slides</a> (continued from week 6)
+<li>Week 9: 
+No class.  Spring Break.
+</li>
+
 
 <p>
-<li>Week 8: Monte Carlo Localization</li>
-<li>Assignment 5 due: Reach-to-point </li>
-<li>Assignment 6 out: Collision-free Move-to-pose</li>
+<li>Week 10: 
+Simple collision detection, 
+Potential Fields (Chapter 5),
+Lagrangian multipliers
+</li>
+<li>Assignment 5 due: Forward kinematics: quaternions</li>
+<li>Assignment 6 out: Inverse kinematics</li>
 
 <p>
-<li>Week 9: Range Sensing, 2.5D Point Clouds, Moving Least Squares </li>
+<li>Week 11: 
+Monte Carlo Localization,
+Simultaneous Localization and Mapping,
+Range Sensing, 
+2.5D Point Clouds, 
+Moving Least Squares 
+</li>
 
 <p>
-<li>Week 10: Newton-Euler Dynamics</li>
-<li>Assignment 6 out: Collision-free Move-to-pose</li>
-<li>Assignment 7 out: The best use of robotics? </li>
+<li>Week 12: 
+Newton-Euler Dynamics,
+Robotics Lab Demos,
+Quad Rotor Helicopters,
+Mobile Manipulation
+</li>
+<li>Assignment 6 due: Inverse kinematics </li>
+<li>Assignment 7 out: Motion planning </li>
+<li>Assignment 8 out: Best use of robotics? </li>
 
 <p>
-<li>Week 11: Class presentations, Robot Lab Demos, Quad Rotor Helicopters</li>
-<li>Assignment 7 due: The best use of robotics? </li>
+<li>Week 13: 
+Regrading and makeup session
+</li>
 
 <p>
-<li>Week 12: TBD</li>
+<li>Week 14: 
+Student presentations
+</li>
+<li>Assignment 7 due: Inverse kinematics </li>
+<li>Assignment 8 due: Best use of robotics? </li>
+
+<p>
+<li>Week 15: 
+Regrading and makeup session
+</li>
 </ul>
+
+
 
 <p>
 Slides from this course borrow from and are indebted to many sources from around the web.  These source include a number of excellent robotics courses:
@@ -246,9 +322,9 @@ Slides from this course borrow from and are indebted to many sources from around
 
 <h2 id="assignment1">Assignment 1: Getting familiar with 3jsbot</h2>  
 <p>
-<b>Due 9am, Monday, February 3, 2014</b>
+<b>Due 9am, Monday, February 2, 2015</b>
 <p>
-In this assignment, you should clone the 3jsbot_stencil repository as your working repository for the course.  3jsbot_stencil contains a code stencil for the assignment and projects in the course.  If you open "home.html" in this repository, you should see the jittering disconnected pieces of a robot (described in "robots/br2.js"), similar to the follwing snapshot:
+In this assignment, you should clone the 3jsbot_stencil repository as your working repository for the course.  3jsbot_stencil contains a code stencil for this assignment as well as all projects in the course.  If you open "home.html" in this repository, you should see the jittering disconnected pieces of a robot (described in "robots/br2.js"), similar to the follwing snapshot:
 
 <p>
 <img src="3jsbot_welcome.png">
@@ -256,35 +332,62 @@ In this assignment, you should clone the 3jsbot_stencil repository as your worki
 <p>
 Your task is to make these objects responsive to keyboard commands, specifically to move upward and stop/start jittering (although more is encouraged).  To do this, you will modify "home.html" within the sections delimited by "// CS148: INITIAL GETTING FAMILIAR CODE".  These sections also include code examples meant to be a quick (and very rough) introduction to JavaScript, assuming programming competency in another language. 
 
-Please be sure that the course instructor knows what repository you are using, and your branch is created and not modified past the deadline.
+<p>
+To ensure proper submission of your assignments, please do the following:
+ 
+<ul>
+<li>email the course instructor (ojenkins addrsign brown) with your name, email address, and pointer to your repository, </li>
+<li>ensure the course instructor knows what repository you are using, and your branch is created and not modified past project deadlines</li>
+<li>ensure the instructor has read/commit access to your repository, which can be confirmed/addressed through email or office hours</li>
+</ul>
+<!--
 <p>
 In the next assignment, we will put these pieces together to form the robot described in "robots/br2.js".
+-->
 
-<h3>Update</h3>
-<p>
-Please email Suzanne Alden (firstname_lastname@brown.edu) with your name, email address, and pointer to your repository.
-<p>
-Also, please ensure the instructor has read/commit access to your repository.  Such issues can be addressed through email or office hours.
 <p>
 For turning in your assignment, create a branch in your repository labeled "Assignment-1".  The "Assignment-1" branch is essentially a tag and should not be merged back into the master.  You should work from the master.
 <p>
 
+<h2 id="assignment2">Assignment 2: Simple pendulum </h2>  
 <p>
-<img src="3jsbot_welcome.png">
-
-<p>
-Your task is to make these objects responsive to keyboard commands, specifically to move upward and stop/start jittering (although more is encouraged).  To do this, you will modify "home.html" within the sections delimited by "// CS148: INITIAL GETTING FAMILIAR CODE".  These sections also include code examples meant to be a quick (and very rough) introduction to JavaScript, assuming programming competency in another language. 
-
-Please be sure that the course instructor knows what repository you are using, and your branch is created and not modified past the deadline.
-<p>
-In the next assignment, we will put these pieces together to form the robot described in "robots/br2.js".
-
-
+<b>Due 9am, Monday, February 16, 2016</b>
 <p>
 
-<h2 id="assignment2">Assignment 2: Draw Robot</h2>  
+To get a sense of physical dynamics and control, your task is to implement a physical simulator and servo controller for a frictionless <a href="http://en.wikipedia.org/wiki/Pendulum">simple pendulum</a> with a rigid massless rod, and then control this system as a 1 DOF robot with a single motor.  The <a href="https://github.com/odestcj/3jsbot_stencil/tree/master/pendulum">code stencil</a> for this pendulum example has been placed in the 3jsbot_stencil repository.
 <p>
-<b>Due 9am, Wednesday, February 19, 2014</b>
+<a href="pendulum_threejs_2.png"><img src="pendulum_threejs_2_small.png"></a>
+
+<p>
+For physical simulation, you will implement two numerical integrators (<a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> and <a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a>) for a pendulum with parameters specified in the code stencil.  The numerical integrator will advance the state (angle and velocity) of the pendulum in time given the current acceleration (generated from the pendulum equation of motion).  If implemented successfully, this ideal pendulum should oscillate about the vertical (where the angle is zero) proportional to the pendulum's initial angle.
+
+<p>
+For motion control, you will implement a <a href="http://en.wikipedia.org/wiki/PID_controller">proportional-integral-derivative controller</a> to control the system's motor to a desired angle.  This PID controller should output control forces integrated into the system's dynamics.  You will need to tune the gains of the PID controller for stable and timely motion to the desired angle for pendulum with parameters: length=2.0, mass=2.0, gravity=9.81.  
+
+<p>
+For user input, you should be able to use the 'q' and 'e' keys to decrement and increment the desired angle of the 1 DOF servoed robot arm, and hold down the 's' key zero the robot's controls and allow it to swing uncontrolled.
+
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-2".  
+<p>
+
+
+<!--
+<h2 id="assignment3">Assignment 3: N-link planar arm </h2>  
+<p>
+<b>Due 9am, Monday, March 2, 2015</b>
+<p>
+
+<p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-3".  
+<p>
+-->
+
+
+<!--
+<h2 id="assignment4">Assignment 4: Forward Kinematics: Draw Robot </h2>  
+<p>
+<b>Due 9am, Monday, March 16, 2015</b>
 <p>
 In this assignment, you will render the forward kinematics of a robot, given its kinematic specification (in the "robots" subdirectory).  To render the robot properly, you will compute matrix transforms for each link and joint of the robot based their hierarchical configuration.  We will assume the joints will remain in their zero position, saving joint motion for Assignment 3.  
 
@@ -326,7 +429,7 @@ The robot_br2_example.js should produce the following:
 
 
 <p>
-For turning in your assignment, create a branch in your repository labeled "Assignment-2".  
+For turning in your assignment, create a branch in your repository labeled "Assignment-4".  
 <p>
 
 <h3>Update</h3>
@@ -350,37 +453,16 @@ If the assignment is completed correctly, you should additionally be able to int
 This will allow you to move up and down the kinematic hierarchy with the "k" and "j" keys, respectively.  You can also move between the children of a link using the "h" and "l" keys.
 
 <p>
+<p>
+-->
 
-<h2 id="assignment3">Assignment 3: Pendulum Simulation and Control (a detour) </h2>  
+<!--
+<h2 id="assignment5">Assignment 5: Forward Kinematics: Quaternions </h2>  
 <p>
-<b>Due 9am, Wednesday, March 5, 2014</b>
-<p>
-
-To get a sense of physical dynamics and control, your task is to implement a physical simulator and servo controller for a frictionless <a href="http://en.wikipedia.org/wiki/Pendulum">simple pendulum</a> with a rigid massless rod, and then control this system as a 1 DOF robot with a single motor.  The <a href="https://github.com/odestcj/3jsbot_stencil/tree/master/pendulum">code stencil</a> for this pendulum example has been placed in the 3jsbot_stencil repository.
-<p>
-<a href="pendulum_threejs_2.png"><img src="pendulum_threejs_2_small.png"></a>
-
-<p>
-For physical simulation, you will implement two numerical integrators (<a href="http://en.wikipedia.org/wiki/Euler%27s_method">Euler's Method</a> and <a href="http://en.wikipedia.org/wiki/Verlet_integration#Velocity_Verlet">Velocity Verlet</a>) for a pendulum with parameters specified in the code stencil.  The numerical integrator will advance the state (angle and velocity) of the pendulum in time given the current acceleration (generated from the pendulum equation of motion).  If implemented successfully, this ideal pendulum should oscillate about the vertical (where the angle is zero) proportional to the pendulum's initial angle.
-
-<p>
-For motion control, you will implement a <a href="http://en.wikipedia.org/wiki/PID_controller">proportional-integral-derivative controller</a> to control the system's motor to a desired angle.  This PID controller should output control forces integrated into the system's dynamics.  You will need to tune the gains of the PID controller for stable and timely motion to the desired angle for pendulum with parameters: length=2.0, mass=2.0, gravity=9.81.  
-
-<p>
-For user input, you should be able to use the 'q' and 'e' keys to decrement and increment the desired angle of the 1 DOF servoed robot arm, and hold down the 's' key zero the robot's controls and allow it to swing uncontrolled.
-
-<p>
-For turning in your assignment, create a branch in your repository labeled "Assignment-3".  
+<b>Due 9am, Monday, March 30, 2015</b>
 <p>
 
-<p>
-
-<h2 id="assignment4">Assignment 4: Control Robot </h2>  
-<p>
-<b>Due 9am, Friday, March 14, 2014</b>
-<p>
-
-For this assignment, you will now add motor rotation to your robot from Assignment 2 with PID control from Assignment 3.  You will implement angular rotation about each joint axis using quaternions for axis-angle rotation.  You should create an "angle" property for each joint that is initialized as zero.  The rotation due to joint angles should be accounted for in the robot's forward kinematics and implemented as quaternions in "3jsbot_quaterion.js".  Remember to uncomment the include of "3jsbot_quaterion.js" in "home.html" and the joint rendering cylinder rotation in "3jsbot.js".
+For this assignment, you will now add motor rotation to your robot from the previous assignment along with PID control from earlier assignments.  You will implement angular rotation about each joint axis using quaternions for axis-angle rotation.  You should create an "angle" property for each joint that is initialized as zero.  The rotation due to joint angles should be accounted for in the robot's forward kinematics and implemented as quaternions in "3jsbot_quaterion.js".  Remember to uncomment the include of "3jsbot_quaterion.js" in "home.html" and the joint rendering cylinder rotation in "3jsbot.js".
 
 <a href="asgn4_joint_rotation.png"><img src="asgn4_joint_rotation_small.png"></a>
 
@@ -397,7 +479,7 @@ Once joint axis rotation is implemented, you will implement movement controls an
 For user input, you should be able to use the 'u' and 'i' keys to decrement and increment the rotation angle the selected joint, 'wasd' keys to move the robot on the ground plane, 'q' and 'e' keys for lateral base movement, and hold down the 'o' key to servo based on the system seconds. controls and allow it to swing uncontrolled.
 
 <p>
-For turning in your assignment, create a branch in your repository labeled "Assignment-4".  
+For turning in your assignment, create a branch in your repository labeled "Assignment-5".  
 <p>
 
 <p>
@@ -408,9 +490,12 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 
 <p>
 
-<h2 id="assignment5">Assignment 5: Reach-to-point </h2>  
+-->
+
+<!--
+<h2 id="assignment6">Assignment 6: Inverse Kinematics </h2>  
 <p>
-<b>Due 9am, Friday, April 4, 2014</b>
+<b>Due 9am, Monday, April 13, 2014</b>
 <p>
 
 <img src="3jsbot_snapshot_2.png" width=600>
@@ -460,12 +545,15 @@ In implementing this IK routine, please remember the following:
 <li>This assignment is only for positional control of the robot endeffector with respect to computing IK error</li>
 </ul>
 
-
 <p>
-
-<h2 id="assignment6">Assignment 6: Collision-free Move-to-pose  </h2>  
+For turning in your assignment, create a branch in your repository labeled "Assignment-6".  
 <p>
-<b>Due 9am, Friday, April 25, 2014</b>
+-->
+
+<!--
+<h2 id="assignment7">Assignment 7: Motion Planning  </h2>  
+<p>
+<b>Due 9am, Friday, April 27, 2015</b>
 <p>
 
 <img src="asgn6_motionplan.png" width=800>
@@ -478,12 +566,12 @@ For this assignment, you will now implement a collision-free motion planner to e
 <script src="3jsbot_rrt_connect.js"></script> 
 <script src="3jsbot_collision.js"></script> 
 <script src="worlds/world_basic.js"></script>
-<!--
+< -
 <script src="worlds/world_empty.js"></script>
 <script src="worlds/world_random.js"></script>
 <script src="worlds/world_local_minima.js"></script>
 <script src="worlds/world_s.js"></script>
--->
+- >
 </code></pre>
 
 <p>
@@ -656,9 +744,15 @@ You will need to modify the forward kinematics calls in 3jsbot_collision.js.  3j
 Also, you can feel free to numeric.inv() instead of matrix_invert_affine().  Affine transforms can be inverted (in constant time) through a much simpler process than the generic matrix inversion, which is O(n^3) for Gaussian elimination. 
 <p>
 
-<h2 id="assignment7">Assignment 7: The best use of robotics? </h2>  
 <p>
-<b>Due 3pm, Friday, April 28, 2014</b>
+For turning in your assignment, create a branch in your repository labeled "Assignment-7".  
+<p>
+-->
+
+<!--
+<h2 id="assignment8">Assignment 8: The best use of robotics? </h2>  
+<p>
+<b>Due 3pm, Monday, April 27, 2015</b>
 <p>
 
 Scenario: An investor is considering giving you 3 million dollars (cold hard USD cash, figuratively).  This investor has been impressed by work with 3jsbot and other accomplishments while at Brown.  They are convinced you have the technical ability to make a compelling robot technology... but, they are unsure how this technology could produce something useful.  Your task is to make a convincing pitch for a  robotics project that would yield a high return on investment. 
@@ -671,6 +765,7 @@ The pitch judged to be the most convincing will get first dibs.
 <p>
 
 <p>
+-->
 <br>
 <br>
 
