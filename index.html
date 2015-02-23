@@ -209,6 +209,7 @@ Proportional-Integral-Derivative control
 <a href="https://www.dropbox.com/s/2axw7p2gmcymvyz/cs148_2015_robotics_4_control.pdf?dl=0">
 Slides (Controls)
 </a>
+<del>
 <li> 
 Generalized coordinates and joint angles
 Particle simulation with optimized constraints
@@ -217,35 +218,34 @@ Spring and ground constraints
 <a href="">
 </a>
 Slides (Dynamics/Constraints)
+</del>
 
 <p>Week 4
 <li> 
 No class. Long weekend break.
 </li>
 <li>Assignment 2 due: Simple pendulum</li>
-<li>Assignment 3 out: Pendularm</li>
+<li><del>Assignment 3 out: Pendularm</del></li>
 
 <p>Week 5 
 <li>
-Robot kinematics, URDF, 
+Robot Kinematics, URDF, 
 2D transforms, 3D transforms (Chapter 2)
-</li>
-<a href="https://www.dropbox.com/s/3vl5dp8lz0xsol2/cs148_2014_robotics_5_ik.pdf">
-</a>
-Slides
-
-<p>Week 6
-<li>
 Forward Kinematics, 
 Matrix Stack (Chapter 3), 
 Quaternions; 
 Not covered: D-H notation
 </li>
-<a href="https://www.dropbox.com/s/bmx8dazfdggtstp/cs148_2014_robotics_6_motionplanning.pdf">
+<a href="">
 </a>
-Slides
-<li>Assignment 3 due: Pendularm</li>
+Slides (Forward Kinematics)
 <li>Assignment 4 out: Forward kinematics: draw robot </li>
+
+<p>Week 6
+<li>
+Forward Kinematics (continued)
+</li>
+<li><del>Assignment 3 due: Pendularm</del></li>
 
 <p>Week 7
 <li>
@@ -256,6 +256,8 @@ Pseudo Inverse (Chapter 4)
 <a href="https://www.dropbox.com/s/bmx8dazfdggtstp/cs148_2014_robotics_6_motionplanning.pdf">
 </a> 
 Slides
+<li>Assignment 4 due: Forward kinematics: draw robot </li>
+<li>Assignment 5 out: Forward kinematics: quaternions</li>
 
 <p>Week 8
 <li>
@@ -264,23 +266,30 @@ Probabilistic Roadmaps,
 RRT Connect (Chapter 5)
 </li>
 <li>Handout: <a href="https://personalrobotics.ri.cmu.edu/courses/papers/Kuffner00-rrtconnect.pdf">RRT-Connect: An Efficient Approach to Single-Query Path Planning</a> by Kuffner and LaValle, ICRA 2000. </li>
-<li>Assignment 4 due: Forward kinematics: draw robot </li>
-<li>Assignment 5 out: Forward kinematics: quaternions</li>
 
 <p>Week 9
 <li>
 No class.  Spring Break.
 </li>
+<li>Assignment 5 due: Forward kinematics: quaternions</li>
+<li>Assignment 6 out: Inverse kinematics</li>
 
 
 <p>Week 10
+<li> 
+Generalized coordinates and joint angles
+Particle simulation with optimized constraints
+Spring and ground constraints
+</li>
+<a href="">
+</a>
+Slides (Dynamics/Constraints)
+
 <li>
 Simple collision detection, 
 Potential Fields (Chapter 5),
 Lagrangian multipliers
 </li>
-<li>Assignment 5 due: Forward kinematics: quaternions</li>
-<li>Assignment 6 out: Inverse kinematics</li>
 
 <p>Week 11
 <li>
@@ -290,6 +299,8 @@ Range Sensing,
 2.5D Point Clouds, 
 Moving Least Squares 
 </li>
+<li>Assignment 6 due: Inverse kinematics </li>
+<li>Assignment 7 out: Motion planning </li>
 
 <p>Week 12
 <li>
@@ -298,20 +309,18 @@ Robotics Lab Demos,
 Quad Rotor Helicopters,
 Mobile Manipulation
 </li>
-<li>Assignment 6 due: Inverse kinematics </li>
-<li>Assignment 7 out: Motion planning </li>
 <li>Assignment 8 out: Best use of robotics? </li>
 
 <p>Week 13
 <li>
 Regrading and makeup session
 </li>
+<li>Assignment 7 due: Motion planning </li>
 
 <p>Week 14
 <li>
 Student presentations
 </li>
-<li>Assignment 7 due: Inverse kinematics </li>
 <li>Assignment 8 due: Best use of robotics? </li>
 
 <p>Week 15
@@ -384,21 +393,24 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 
 
 <!--
+-->
 <h2 id="assignment3">Assignment 3: Pendularm </h2>  
 <p>
-<b>Due 9am, Monday, March 2, 2015</b>
+<b>CANCELLED <br>
+<del>Due 9am, Monday, March 2, 2015</del></b>
 <p>
-
+Due to the scheduling issues imposed by weather conditions, this assignment has been cancelled for the current semester.  If you are interested in implementing this assignment (because it is cool), please see the course instructor.
 <p>
-For turning in your assignment, create a branch in your repository labeled "Assignment-3".  
+<del>For turning in your assignment, create a branch in your repository labeled "Assignment-3".  </del>
 <p>
--->
 
 
 <!--
+-->
 <h2 id="assignment4">Assignment 4: Forward Kinematics: Draw Robot </h2>  
 <p>
-<b>Due 9am, Monday, March 16, 2015</b>
+<b><del>Due 9am, Monday, March 16, 2015</del></b>
+<b>Due 9am, Monday, March 9, 2015</b>
 <p>
 In this assignment, you will render the forward kinematics of a robot, given its kinematic specification (in the "robots" subdirectory).  To render the robot properly, you will compute matrix transforms for each link and joint of the robot based their hierarchical configuration.  We will assume the joints will remain in their zero position, saving joint motion for Assignment 3.  
 
@@ -430,7 +442,7 @@ Each file in the robots subdirectory contains code to create a robot data object
 <p>
 
 If implemented properly, the robot_urdf_example.js example should produce the following rendering:
-
+<p>
 <img src="asgn2_urdf_example.png">
 <p>
 
@@ -438,14 +450,8 @@ The robot_br2_example.js should produce the following:
 <p>
 <img src="asgn2_br2_example.png">
 
-
 <p>
-For turning in your assignment, create a branch in your repository labeled "Assignment-4".  
-<p>
-
-<h3>Update</h3>
-<p>
-If the assignment is completed correctly, you should additionally be able to interactively highlight joints by uncommenting the following in 3jsbot.js:
+Additionally, a correct implementation will be able to interactively highlight joints by uncommenting the following in 3jsbot.js:
 
 <pre><code data-language="javascript">
 /*
@@ -464,8 +470,10 @@ If the assignment is completed correctly, you should additionally be able to int
 This will allow you to move up and down the kinematic hierarchy with the "k" and "j" keys, respectively.  You can also move between the children of a link using the "h" and "l" keys.
 
 <p>
+For turning in your assignment, create a branch in your repository labeled "Assignment-4".  
 <p>
--->
+
+<p>
 
 <!--
 <h2 id="assignment5">Assignment 5: Forward Kinematics: Quaternions </h2>  
