@@ -47,8 +47,8 @@
             <li><a href="#assignment3">asgn3</a></li>
 -->
             <li><a href="#assignment4">asgn4</a></li>
-<!--
             <li><a href="#assignment5">asgn5</a></li>
+<!--
             <li><a href="#assignment6">asgn6</a></li>
             <li><a href="#assignment7">asgn7</a></li>
             <li><a href="#assignment8">asgn8</a></li>
@@ -478,9 +478,10 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <p>
 
 <!--
+-->
 <h2 id="assignment5">Assignment 5: Forward Kinematics: Quaternions </h2>  
 <p>
-<b>Due 9am, Monday, March 30, 2015</b>
+<b>Due 9am, Monday, March 23, 2015</b>
 <p>
 
 For this assignment, you will now add motor rotation to your robot from the previous assignment along with PID control from earlier assignments.  You will implement angular rotation about each joint axis using quaternions for axis-angle rotation.  You should create an "angle" property for each joint that is initialized as zero.  The rotation due to joint angles should be accounted for in the robot's forward kinematics and implemented as quaternions in "3jsbot_quaterion.js".  Remember to uncomment the include of "3jsbot_quaterion.js" in "home.html" and the joint rendering cylinder rotation in "3jsbot.js".
@@ -488,7 +489,33 @@ For this assignment, you will now add motor rotation to your robot from the prev
 <a href="asgn4_joint_rotation.png"><img src="asgn4_joint_rotation_small.png"></a>
 
 <p>
-Once joint axis rotation is implemented, you will implement movement controls and PD control for the robot.  You should create an "control" property for each joint and global DOF that is initialized as zero, and a "servo" property with PD gains and desireds.  In "home.html", you should uncomment the function call to robot_apply_controls() and code segment around robot_pd_control(), and implement these functions respectively in "3jsbot_controls.js" and "3jsbot_pd_control.js".  robot_apply_controls() should add the controls to the joint angle state and global pose of the robot.  For the joint angles, robot_pd_control() should implement a simple proportional-derivative controller that updates to the desired angle based on the seconds of the system clock.  The following code snippet shows how to get the current system time and seconds, and scale this value to span the range (0..2*Math.PI).
+Once joint axis rotation is implemented, you will implement movement controls and PD control for the robot.  You should create an "control" property for each joint and global DOF that is initialized as zero, and a "servo" property with PD gains and desireds.  In "home.html", you should uncomment the function call to robot_apply_controls() and code segment around robot_pd_control(), and implement these functions respectively in "3jsbot_controls.js" and "3jsbot_pd_control.js".  
+<p>
+<b>robot_apply_controls():</b> Assuming simple non-Newtonian physics, robot_apply_controls() should simply add the controls to the joint angle state (contained in the robot.joints[x].angle fields) and global pose (contained in the robot.origin field) of the robot.  Assume the base of the robot will be restricted to the ground plane.  The following patch can be used in your main FK routine to create the rendering geoms for the robot's forward and lateral directions in the ground plane:
+<p>
+<pre><code data-language="javascript">
+        if (typeof heading_geom === 'undefined') {
+            var temp_geom = new THREE.CubeGeometry(0.3, 0.3, 0.3);
+            var temp_material = new THREE.MeshBasicMaterial( {color: 0x00ffff} )
+            heading_geom = new THREE.Mesh(temp_geom, temp_material);
+            scene.add(heading_geom);
+        }
+        if (typeof lateral_geom === 'undefined') {
+            var temp_geom = new THREE.CubeGeometry(0.3, 0.3, 0.3);
+            var temp_material = new THREE.MeshBasicMaterial( {color: 0x008888} )
+            lateral_geom = new THREE.Mesh(temp_geom, temp_material);
+            scene.add(lateral_geom);
+        }
+</code></pre>
+<p>
+The placement of these geoms can then be set using simpleApplyMatrix():
+
+        simpleApplyMatrix(heading_geom,heading_mat);
+        simpleApplyMatrix(lateral_geom,lateral_mat);
+
+Note: this is not the most elegant way to show the robot's heading and lateral, but does give a reasonable visual indication.
+<p>
+<b>robot_pd_control():</b> For controlling the joint angles, robot_pd_control() should implement a simple proportional-derivative controller that updates to the desired angle of all joints based on the seconds of the system clock.  This controller provides a simple means to test that controls for all joints are working.  The following code snippet shows how to get the current system time and seconds, and scale this value to span the range (0..2*Math.PI).
 
 <p>
 <pre><code data-language="javascript">
@@ -497,21 +524,20 @@ Once joint axis rotation is implemented, you will implement movement controls an
 </code></pre>
 
 <p>
-For user input, you should be able to use the 'u' and 'i' keys to decrement and increment the rotation angle the selected joint, 'wasd' keys to move the robot on the ground plane, 'q' and 'e' keys for lateral base movement, and hold down the 'o' key to servo based on the system seconds. controls and allow it to swing uncontrolled.
-
+For user input, you should be able to use the 'u' and 'i' keys to decrement and increment the rotation angle the selected joint, 'wasd' keys to move the robot on the ground plane, 'q' and 'e' keys for lateral base movement, and hold down the 'o' key to servo based on the system seconds. 
 <p>
 For turning in your assignment, create a branch in your repository labeled "Assignment-5".  
 <p>
 
-<p>
 
+<!--
+<p>
 <h3>Update</h3>
 <p>
 <a href="https://www.dropbox.com/s/jlxhfvkh0ytybjz/cs148_2014_robotics_3a_assignment4_addendum.pdf">Addendum slides</a> with more details about user input and controls for base motion.
-
+-->
 <p>
 
--->
 
 <!--
 <h2 id="assignment6">Assignment 6: Inverse Kinematics </h2>  
