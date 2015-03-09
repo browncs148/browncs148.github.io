@@ -484,7 +484,7 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <b>Due 9am, Monday, March 23, 2015</b>
 <p>
 
-For this assignment, you will now add motor rotation to your robot from the previous assignment along with PID control from earlier assignments.  You will implement angular rotation about each joint axis using quaternions for axis-angle rotation.  You should create an "angle" property for each joint that is initialized as zero.  The rotation due to joint angles should be accounted for in the robot's forward kinematics and implemented as quaternions in "3jsbot_quaterion.js".  Remember to uncomment the include of "3jsbot_quaterion.js" in "home.html" and the joint rendering cylinder rotation in "3jsbot.js".
+For this assignment, you will now add motor rotation to your robot from the previous assignment along with PID control from earlier assignments.  You will implement angular rotation about each joint axis using quaternions for axis-angle rotation.  You should create an "angle" property for each joint that is initialized as zero for rotation about the normal vector specified in the "axis" field.  The rotation due to joint angles should be accounted for in the robot's forward kinematics and implemented as quaternions in "3jsbot_quaterion.js".  Remember to uncomment the include of "3jsbot_quaterion.js" in "home.html" and the joint rendering cylinder rotation in "3jsbot.js".
 
 <a href="asgn4_joint_rotation.png"><img src="asgn4_joint_rotation_small.png"></a>
 
