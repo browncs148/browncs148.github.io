@@ -491,7 +491,7 @@ For this assignment, you will now add motor rotation to your robot from the prev
 <p>
 Once joint axis rotation is implemented, you will implement movement controls and PD control for the robot.  You should create an "control" property for each joint and global DOF that is initialized as zero, and a "servo" property with PD gains and desireds.  In "home.html", you should uncomment the function call to robot_apply_controls() and code segment around robot_pd_control(), and implement these functions respectively in "3jsbot_controls.js" and "3jsbot_pd_control.js".  
 <p>
-<b>robot_apply_controls():</b> Assuming simple non-Newtonian physics, robot_apply_controls() should simply add the controls to the joint angle state (contained in the robot.joints[x].angle fields) and global pose (contained in the robot.origin field) of the robot.  Assume the base of the robot will be restricted to the ground plane.  The following patch can be used in your main FK routine to create the rendering geoms for the robot's forward and lateral directions in the ground plane:
+<b>robot_apply_controls():</b> Assuming simple non-Newtonian physics, robot_apply_controls() should simply add the controls to the joint angle state (contained in the robot.joints[x].angle fields) and global pose (contained in the robot.origin field) of the robot.  Assume the base of the robot will be restricted to the ground plane.  The following patch can be used in your main FK routine (such as through the compute_and_draw_heading() function) to create the rendering geoms for the robot's forward and lateral directions in the ground plane:
 <p>
 <pre><code data-language="javascript">
         if (typeof heading_geom === 'undefined') {
@@ -509,10 +509,10 @@ Once joint axis rotation is implemented, you will implement movement controls an
 </code></pre>
 <p>
 The placement of these geoms can then be set using simpleApplyMatrix():
-
+<pre><code data-language="javascript">
         simpleApplyMatrix(heading_geom,heading_mat);
         simpleApplyMatrix(lateral_geom,lateral_mat);
-
+</code></pre>
 Note: this is not the most elegant way to show the robot's heading and lateral, but does give a reasonable visual indication.
 <p>
 <b>robot_pd_control():</b> For controlling the joint angles, robot_pd_control() should implement a simple proportional-derivative controller that updates to the desired angle of all joints based on the seconds of the system clock.  This controller provides a simple means to test that controls for all joints are working.  The following code snippet shows how to get the current system time and seconds, and scale this value to span the range (0..2*Math.PI).
