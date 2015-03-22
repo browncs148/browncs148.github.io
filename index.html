@@ -48,8 +48,8 @@
 -->
             <li><a href="#assignment4">asgn4</a></li>
             <li><a href="#assignment5">asgn5</a></li>
-<!--
             <li><a href="#assignment6">asgn6</a></li>
+<!--
             <li><a href="#assignment7">asgn7</a></li>
             <li><a href="#assignment8">asgn8</a></li>
 -->
@@ -205,7 +205,7 @@ Slides (Dynamics)
 
 <p>Week 3
 <li> 
-Basic motion control
+Basic motion control,
 Proportional-Integral-Derivative control
 </li>
 <a href="https://www.dropbox.com/s/2axw7p2gmcymvyz/cs148_2015_robotics_4_control.pdf?dl=0">
@@ -255,17 +255,23 @@ Inverse kinematics,
 Geometric Jacobian, 
 Pseudo Inverse (Chapter 4)
 </li>
-<a href="https://www.dropbox.com/s/bmx8dazfdggtstp/cs148_2014_robotics_6_motionplanning.pdf">
+<a href="https://www.dropbox.com/s/og02jk93k2svs3t/cs148_2015_robotics_6_inverse_kinematics.pdf?dl=0">
+Slides (Inverse Kinematics)
 </a> 
-Slides
 <li>Assignment 4 due: Forward kinematics: draw robot </li>
 <li>Assignment 5 out: Forward kinematics: quaternions</li>
 
 <p>Week 8
 <li>
+Robot Decision Making, 
 Motion Planning, 
+Bug Algorithms,
 Probabilistic Roadmaps, 
-RRT Connect (Chapter 5)
+RRT Connect (Chapter 5),
+Axis-aligned collision detection, 
+Finite State Machines, 
+Subsumption Architecture,
+Potential Fields
 </li>
 <li>Handout: <a href="https://personalrobotics.ri.cmu.edu/courses/papers/Kuffner00-rrtconnect.pdf">RRT-Connect: An Efficient Approach to Single-Query Path Planning</a> by Kuffner and LaValle, ICRA 2000. </li>
 
@@ -273,28 +279,33 @@ RRT Connect (Chapter 5)
 <li>
 No class.  Spring Break.
 </li>
+
+
+<p>Week 10 <!--March 30-->
+<li> 
+Decision Making and Motion Planning (continued)
+</li>
+<a href="">
+</a>
+Slides (Decision Making and Motion Planning)
 <li>Assignment 5 due: Forward kinematics: quaternions</li>
 <li>Assignment 6 out: Inverse kinematics</li>
 
-
-<p>Week 10
-<li> 
-Generalized coordinates and joint angles
-Particle simulation with optimized constraints
+<p>Week 11
+<li>
+Potential Fields (Chapter 5),
+Lagrangian multipliers,
+Generalized coordinates and joint angles,
+Particle simulation with optimized constraints,
 Spring and ground constraints
 </li>
 <a href="">
 </a>
 Slides (Dynamics/Constraints)
 
+<p>Week 12 
 <li>
-Simple collision detection, 
-Potential Fields (Chapter 5),
-Lagrangian multipliers
-</li>
-
-<p>Week 11
-<li>
+Robot Perception,
 Monte Carlo Localization,
 Simultaneous Localization and Mapping,
 Range Sensing, 
@@ -304,30 +315,31 @@ Moving Least Squares
 <li>Assignment 6 due: Inverse kinematics </li>
 <li>Assignment 7 out: Motion planning </li>
 
-<p>Week 12
+<p>Week 13 
 <li>
-Newton-Euler Dynamics,
 Robotics Lab Demos,
-Quad Rotor Helicopters,
-Mobile Manipulation
+Regrading and makeup session
 </li>
 <li>Assignment 8 out: Best use of robotics? </li>
 
-<p>Week 13
+<p>Week 14 <!--April 27-->
 <li>
+Robot Middleware, 
+<i>rosbridge</i> and Robot Web Tools,
+Quad rotor helicopter programming
 Regrading and makeup session
 </li>
 <li>Assignment 7 due: Motion planning </li>
 
-<p>Week 14
+<p>Week 15
 <li>
 Student presentations
 </li>
 <li>Assignment 8 due: Best use of robotics? </li>
 
-<p>Week 15
+<p>Week 16 <!--May 11-->
 <li> 
-Regrading and makeup session
+Grading finalized
 </li>
 </ul>
 
@@ -373,7 +385,7 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <h2 id="assignment2">Assignment 2: Simple pendulum </h2>  
 <p>
 <b><del>Due 9am, Monday, February 16, 2015</del></b>
-<b>UPDATE: Due 9am, Thursday, February 19, 2015</del></b>
+<br><b>UPDATE: Due 9am, Thursday, February 19, 2015</del></b>
 <p>
 
 To get a sense of physical dynamics and control, your task is to implement a physical simulator and servo controller for a frictionless <a href="http://en.wikipedia.org/wiki/Pendulum">simple pendulum</a> with a rigid massless rod, and then control this system as a 1 DOF robot with a single motor.  The <a href="https://github.com/odestcj/3jsbot_stencil/tree/master/pendulum">code stencil</a> for this pendulum example has been placed in the 3jsbot_stencil repository.
@@ -412,7 +424,7 @@ Due to the scheduling issues imposed by weather conditions, this assignment has 
 <h2 id="assignment4">Assignment 4: Forward Kinematics: Draw Robot </h2>  
 <p>
 <b><del>Due 9am, Monday, March 16, 2015</del></b>
-<b>Due 9am, Monday, March 9, 2015</b>
+<br><b>UPDATE: Due 9am, Monday, March 9, 2015</b>
 <p>
 In this assignment, you will render the forward kinematics of a robot, given its kinematic specification (in the "robots" subdirectory).  To render the robot properly, you will compute matrix transforms for each link and joint of the robot based their hierarchical configuration.  We will assume the joints will remain in their zero position, saving joint motion for Assignment 3.  
 
@@ -481,7 +493,8 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 -->
 <h2 id="assignment5">Assignment 5: Forward Kinematics: Quaternions </h2>  
 <p>
-<b>Due 9am, Monday, March 23, 2015</b>
+<del><b>Due 9am, Monday, March 23, 2015</b></del>
+<b>UPDATE: Due 9am, Monday, March 30, 2015</b>
 <p>
 
 For this assignment, you will now add motor rotation to your robot from the previous assignment along with PID control from earlier assignments.  You will implement angular rotation about each joint axis using quaternions for axis-angle rotation.  You should create an "angle" property for each joint that is initialized as zero for rotation about the normal vector specified in the "axis" field.  The rotation due to joint angles should be accounted for in the robot's forward kinematics and implemented as quaternions in "3jsbot_quaterion.js".  Remember to uncomment the include of "3jsbot_quaterion.js" in "home.html" and the joint rendering cylinder rotation in "3jsbot.js".
@@ -540,6 +553,7 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 
 
 <!--
+-->
 <h2 id="assignment6">Assignment 6: Inverse Kinematics </h2>  
 <p>
 <b>Due 9am, Monday, April 13, 2014</b>
@@ -595,7 +609,6 @@ In implementing this IK routine, please remember the following:
 <p>
 For turning in your assignment, create a branch in your repository labeled "Assignment-6".  
 <p>
--->
 
 <!--
 <h2 id="assignment7">Assignment 7: Motion Planning  </h2>  
@@ -799,14 +812,14 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <!--
 <h2 id="assignment8">Assignment 8: The best use of robotics? </h2>  
 <p>
-<b>Due 3pm, Monday, April 27, 2015</b>
+<b>Due 3pm, Monday, May 4, 2015</b>
 <p>
 
 Scenario: An investor is considering giving you 3 million dollars (cold hard USD cash, figuratively).  This investor has been impressed by work with 3jsbot and other accomplishments while at Brown.  They are convinced you have the technical ability to make a compelling robot technology... but, they are unsure how this technology could produce something useful.  Your task is to make a convincing pitch for a  robotics project that would yield a high return on investment. 
 <p>
 You will get 2 minutes to make a pitch to develop something useful with robots.  Consider the instructor and your classmates as the people that need to be convinced.  As a guideline, your pitch should address an opportunity (presented by a need or a problem), your planned result (as a system, technology, product, and/or service), and how you will measure successful return on investment.  Return on investment can be viewed as financial profit (wrt. venture capital), good for society (wrt. a government program), creation of new knowledge or capabilities (wrt. a grant for scientific research).  Remeber, the purpose is to convince and inspire about what is possible, rather than dive into specifics.
 <p>
-The last scheduled class period (Monday April 28, 3-5pm) will be dedicated to student presentations to pitch ideas on the best use of robotics.  Please email your slides to the instructor before 10am on April 28 with the subject line ("Asgn7 pitch slides").  OS X Keynote will be used as the sole means of slide presentation, and will be timed and controlled by the instructor.  As such, slide materials can be accepted as Keynote, Powerpoint (no guarantees on conversion), PDF, and common image and video formats (JPG, PNG, MP4, FLV, etc.)
+The last scheduled class period (Monday May 4th, 3-5pm) will be dedicated to student presentations to pitch ideas on the best use of robotics.  Please email your slides to the instructor before 9am on April 30th with the subject line ("cs148 asgn8 pitch slides").  OS X Keynote will be used as the sole means of slide presentation, and will be timed and controlled by the instructor.  As such, slide materials can be accepted as Keynote, Powerpoint (no guarantees on conversion), PDF, and common image and video formats (JPG, PNG, MP4, FLV, etc.).
 <p>
 The pitch judged to be the most convincing will get first dibs.
 <p>
