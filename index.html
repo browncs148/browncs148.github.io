@@ -49,9 +49,9 @@
             <li><a href="#assignment4">asgn4</a></li>
             <li><a href="#assignment5">asgn5</a></li>
             <li><a href="#assignment6">asgn6</a></li>
-<!--
             <li><a href="#assignment7">asgn7</a></li>
             <li><a href="#assignment8">asgn8</a></li>
+<!--
 -->
         </ul>
     </div>
@@ -285,9 +285,9 @@ No class.  Spring Break.
 <li> 
 Decision Making and Motion Planning (continued)
 </li>
-<a href="">
-</a>
+<a href="https://www.dropbox.com/s/fiiavv2ta7blmcf/cs148_2015_robotics_7_motion_planning.pdf?dl=0">
 Slides (Decision Making and Motion Planning)
+</a>
 <li>Assignment 5 due: Forward kinematics: quaternions</li>
 <li>Assignment 6 out: Inverse kinematics</li>
 
@@ -611,6 +611,7 @@ For turning in your assignment, create a branch in your repository labeled "Assi
 <p>
 
 <!--
+-->
 <h2 id="assignment7">Assignment 7: Motion Planning  </h2>  
 <p>
 <b>Due 9am, Friday, April 27, 2015</b>
@@ -660,7 +661,23 @@ Even before your planner is implemented, you can use the collision system intera
 <img src="asgn6_collision.png" width=600>
 <p>
 
+
+<h3>Updating 3jsbot_collision for your implementation</h3>
+<p>
+You will need to modify the forward kinematics calls in 3jsbot_collision.js.  3jsbot_collision.js uses matrix and quaternion calls based on the reference implementation (i.e., my code).  Your matrix and quaternion calls likely have a different structure to the function arguments and returned data structures.  You should either:
+
+ <ul> 
+  <li>1) modify calls to matrix/quaternion routines to fit your functions, or
+
+  <li>2) use a modified version of your own FK with the collision test added to the link traversal function (remember: you need the inverse of the matrix stack for collision testing in a link frame)
+</ul>
+<p>
+
+Also, you can feel free to use numeric.inv() instead of matrix_invert_affine().  Affine transforms can be inverted (in constant time) through a much simpler process than the generic matrix inversion, which is O(n^3) for Gaussian elimination. 
+<p>
 If successful to this point, you should be able to see the collision world of the robot, move around this world, and see the base display solid red when a collision occurs.
+<p>
+
 
 <h3>Invoking the planner</h3> 
 
@@ -790,26 +807,12 @@ To help you get started, the code stencil also has a "rrt_canvas" directory wher
 
 <p>
 
-<h3>Update</h3>
-<p>
-You will need to modify the forward kinematics calls in 3jsbot_collision.js.  3jsbot_collision.js uses matrix and quaternion calls based on the reference implementation (i.e., my code).  Your matrix and quaternion calls likely have a different structure to the function arguments and returned data structures.  You should either:
-
- <ul> 
-  <li>1) modify calls to matrix/quaternion routines to fit your functions, or
-
-  <li>2) use a modified version of your own FK with the collision test added to the link traversal function (remember: you need the inverse of the matrix stack for collision testing in a link frame)
-</ul>
-<p>
-
-Also, you can feel free to numeric.inv() instead of matrix_invert_affine().  Affine transforms can be inverted (in constant time) through a much simpler process than the generic matrix inversion, which is O(n^3) for Gaussian elimination. 
-<p>
-
 <p>
 For turning in your assignment, create a branch in your repository labeled "Assignment-7".  
 <p>
--->
 
 <!--
+-->
 <h2 id="assignment8">Assignment 8: The best use of robotics? </h2>  
 <p>
 <b>Due 3pm, Monday, May 4, 2015</b>
@@ -825,7 +828,6 @@ The pitch judged to be the most convincing will get first dibs.
 <p>
 
 <p>
--->
 <br>
 <br>
 
