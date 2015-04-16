@@ -749,9 +749,10 @@ The user should should be able to interactively move the robot through the found
         if (typeof robot_path !== 'undefined') {
 
             // increment index
-            if ((keyboard.pressed("n"))&&(robot_path_traverse_idx<robot_path.length-1))
+            if ((keyboard.pressed("n"))&&(robot_path_traverse_idx &lt robot_path.length-1))
                 robot_path_traverse_idx++;
-            if ((keyboard.pressed("b"))&&(robot_path_traverse_idx>0))
+
+            if ((keyboard.pressed("b"))&&(robot_path_traverse_idx &gt 0))
                 robot_path_traverse_idx--;
 
              // set angle
