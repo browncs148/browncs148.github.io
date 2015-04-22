@@ -627,12 +627,23 @@ For this assignment, you will now implement a collision-free motion planner to e
 <script src="3jsbot_rrt_connect.js"></script> 
 <script src="3jsbot_collision.js"></script> 
 <script src="worlds/world_basic.js"></script>
-< -
+<--
 <script src="worlds/world_empty.js"></script>
 <script src="worlds/world_random.js"></script>
 <script src="worlds/world_local_minima.js"></script>
 <script src="worlds/world_s.js"></script>
-- >
+-->
+</code></pre>
+
+<p>
+To ensure these worlds are rendered in the display, the geometries of the world are added to the threejs scene by calling robot_set_planning_scene() in home.html at the end of the init_robot() function:
+
+<pre><code data-language="javascript">
+function init_robot() {
+    ...
+    // set scene for planner
+    robot_set_planning_scene();
+}
 </code></pre>
 
 <p>
